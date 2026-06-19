@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scalers Content Studio</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+
+<style>
+  :root{
+    --bg:#0b1020; --panel:#121831; --panel2:#0e1429; --line:#23304f;
+    --ink:#eaf0ff; --muted:#93a0c4; --brand:#6d5efc; --brand2:#22a7ff;
+    --ok:#2ecc8f; --accent:#8b7bff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#1b2350 0,transparent 60%),
+               radial-gradient(900px 500px at -10% 10%,#172a55 0,transparent 55%),var(--bg);
+    color:var(--ink);min-height:100vh}
+  .app{display:flex;min-height:100vh}
+  /* SIDEBAR */
+  .sidebar{width:248px;flex-shrink:0;border-right:1px solid var(--line);padding:18px 14px;
+    position:sticky;top:0;height:100vh;overflow:auto}
+  .brandbox{display:flex;align-items:center;gap:11px;padding:6px 8px 18px}
+  .logo{width:40px;height:40px;display:grid;place-items:center;flex-shrink:0}
+  .logo svg,.logo img{width:100%;height:100%;display:block;object-fit:contain}
+  .brandbox h1{font-size:15.5px;margin:0;line-height:1.1}
+  .brandbox p{margin:2px 0 0;font-size:10.5px;color:var(--muted);letter-spacing:1px}
+  .navlabel{font-size:10.5px;letter-spacing:1.5px;color:var(--muted);padding:8px 10px 6px;text-transform:uppercase}
+  .navbtn{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:transparent;
+    border:1px solid transparent;color:var(--muted);border-radius:11px;padding:11px 12px;font-size:13.5px;
+    cursor:pointer;margin-bottom:3px;font-family:inherit}
+  .navbtn:hover{background:#141c38;color:var(--ink)}
+  .navbtn.active{background:linear-gradient(135deg,rgba(109,94,252,.22),rgba(34,167,255,.18));
+    border-color:#34407a;color:#fff;font-weight:600}
+  .navbtn .ic{width:20px;text-align:center;font-size:15px}
+  /* MAIN */
+  .main{flex:1;min-width:0;padding:0}
+  .topbar{padding:22px 28px 6px;display:flex;align-items:baseline;gap:10px}
+  .topbar h2{margin:0;font-size:22px}
+  .topbar h2 b{color:var(--brand2)}
+  .topbar .sub{color:var(--muted);font-size:12.5px}
+  .wrap{display:grid;grid-template-columns:1.25fr .95fr;gap:22px;padding:14px 28px 30px;max-width:1320px;align-items:start}
+  @media(max-width:980px){.wrap{grid-template-columns:1fr}
+    .sidebar{position:fixed;z-index:50;transform:translateX(-100%);transition:.2s;background:var(--panel2)}
+    .sidebar.open{transform:none}.menutoggle{display:inline-flex !important}
+    .sb-backdrop.show{display:block}}
+  .sb-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40}
+  .formcol{display:flex;flex-direction:column;gap:18px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+    border-radius:16px;padding:18px}
+  @keyframes flashOut{0%{box-shadow:0 0 0 0 rgba(34,167,255,.55)}100%{box-shadow:0 0 0 16px rgba(34,167,255,0)}}
+  .out.flash{animation:flashOut .9s ease-out 1}
+  .spin{display:inline-block;width:16px;height:16px;border:2px solid var(--line);border-top-color:var(--brand2);border-radius:50%;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .loadwrap{display:flex;align-items:center;justify-content:center;gap:10px;height:240px;color:var(--muted);font-size:13px}
+  .wrap.guide{grid-template-columns:1fr}
+  .wrap.guide .out{display:none}
+  .guide-card h3{font-size:15.5px;color:var(--ink);text-transform:none;letter-spacing:0;margin:0 0 10px;display:flex;align-items:center;gap:9px}
+  .guide-card p,.guide-card li{font-size:13.5px;color:#c6cfe8;line-height:1.62}
+  .guide-card ul,.guide-card ol{margin:6px 0 0;padding-left:20px}
+  .guide-card li{margin-bottom:7px}
+  .guide-card b{color:var(--ink)}
+  .gicon{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:inline-grid;place-items:center;font-size:14px;flex-shrink:0}
+  .sec h3{display:flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;
+    letter-spacing:1.2px;color:var(--muted);margin:0 0 14px}
+  .num{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));
+    display:grid;place-items:center;font-size:12px;color:#fff;font-weight:800}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}
+    .wrap{padding:12px 14px 24px}.topbar{padding:18px 16px 4px}.topbar h2{font-size:19px}.menutoggle{margin:14px 0 0 14px}.appfoot{padding:10px 14px 24px}}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  label{font-size:12.5px;color:var(--muted)}
+  label .req{color:#ff7a87}
+  select,input,textarea{width:100%;background:#0c1430;border:1px solid var(--line);color:var(--ink);
+    border-radius:10px;padding:10px 11px;font-size:13.5px;outline:none;font-family:inherit}
+  select:focus,input:focus,textarea:focus{border-color:var(--brand)}
+  textarea{resize:none;min-height:44px;overflow:hidden;line-height:1.5}
+  select.err,input.err,textarea.err{border-color:#ff5d6c;box-shadow:0 0 0 2px rgba(255,93,108,.18)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:flex;align-items:center;gap:7px;background:#0c1430;border:1px solid var(--line);
+    padding:8px 12px;border-radius:10px;font-size:12.5px;cursor:pointer;user-select:none;transition:background .15s,border-color .15s,color .15s}
+  .chip:hover{border-color:var(--accent)}
+  .chip input{display:none}
+  .chip:has(input:checked){background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent;color:#fff;font-weight:600}
+  .optrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .actions{display:flex;gap:10px}
+  .btn{flex:1;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}
+  /* OUTPUT */
+  .out{position:sticky;top:18px}
+  .outhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .outhead h3{margin:0;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  .copybtn{background:#0c1430;border:1px solid var(--line);color:var(--ink);border-radius:9px;
+    padding:7px 13px;font-size:12px;cursor:pointer;font-family:inherit}
+  .copybtn.done{border-color:var(--ok);color:var(--ok)}
+  .copyfull{width:100%;margin-top:12px;padding:12px;font-size:13.5px;font-weight:700;transition:transform .1s}
+  @keyframes copyPop{0%{transform:scale(1)}30%{transform:scale(.95)}62%{transform:scale(1.05)}100%{transform:scale(1)}}
+  @keyframes copyRing{0%{box-shadow:0 0 0 0 rgba(46,204,143,.5)}100%{box-shadow:0 0 0 13px rgba(46,204,143,0)}}
+  .copyfull.pop{animation:copyPop .45s cubic-bezier(.34,1.56,.64,1), copyRing .7s ease-out}
+  pre.output{background:#070c1d;border:1px solid var(--line);border-radius:12px;padding:16px;
+    font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#cfe0ff;
+    min-height:300px;max-height:56vh;overflow:auto;margin:0}
+  .ailaunch{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+  @media(max-width:420px){.ailaunch{grid-template-columns:1fr}}
+  .ai{border:none;border-radius:12px;padding:13px 8px;font-size:13.5px;font-weight:700;cursor:pointer;
+    color:#fff;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit}
+  .ai.gpt{background:linear-gradient(135deg,#10a37f,#0d8a6c)}
+  .ai.claude{background:linear-gradient(135deg,#d97757,#c2603f)}
+  .ai.gemini{background:linear-gradient(135deg,#4285f4,#9b72cb)}
+  .ai:disabled{opacity:.45;cursor:not-allowed}
+  .hint{font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+  .menutoggle{display:none;align-items:center;gap:8px;background:#141c38;border:1px solid var(--line);
+    color:var(--ink);border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer;margin:14px 0 0 28px}
+  .appfoot{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 28px 26px}
+  .appfoot b{color:var(--brand2);font-weight:600}
+  #authScreen{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;
+    background:radial-gradient(1000px 500px at 70% -10%,#1b2350 0,transparent 60%),var(--bg)}
+  .authcard{width:380px;max-width:100%;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:26px}
+  .authcard h2{margin:0 0 4px;font-size:20px}
+  .authcard input{width:100%;margin-top:10px}
+  .auth-msg{font-size:12.5px;min-height:16px;margin-top:8px;line-height:1.45}
+  .authswitch{font-size:12.5px;color:var(--muted);text-align:center;margin:14px 0 0}
+  .authswitch a{color:var(--brand2);cursor:pointer;text-decoration:underline}
+  #authScreen{transition:opacity .45s}
+  .authcard{transition:opacity .3s,transform .3s}
+  .spin.big{width:36px;height:36px;border-width:3px}
+  #welcomeLayer{display:none;flex-direction:column;align-items:center;gap:16px;color:var(--ink);font-size:14px;letter-spacing:.3px}
+  #authScreen.entering .authcard{display:none}
+  #authScreen.entering #welcomeLayer{display:flex}
+  #authBtn .spin{vertical-align:-3px;margin-right:6px;border-top-color:#fff;border-color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brandbox">
+      <div class="logo"><img src="data:image/png;base64,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" alt="The Scalers"></div>
+      <div><h1>The Scalers</h1><p>CONTENT STUDIO</p></div>
+    </div>
+    <nav id="nav"></nav>
+    <button class="navbtn" id="logoutBtn" style="display:flex;margin-top:18px;border-top:1px solid var(--line);border-radius:0;padding-top:14px"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span> Keluar</button>
+  </aside>
+
+  <main class="main">
+    <button class="menutoggle" id="menutoggle">☰ Menu</button>
+    <div class="topbar"><h2 id="toolTitle"></h2></div>
+    <div class="wrap">
+      <div class="formcol" id="formcol"></div>
+      <div class="card out">
+        <div class="outhead"><h3>AI Prompt Output</h3></div>
+        <pre class="output" id="output">// Isi form, lalu klik "Generate Prompt"...</pre>
+        <button class="copybtn copyfull" id="copy">Copy Scaler Prompt</button>
+        <div class="ailaunch">
+          <button class="ai gpt" data-ai="gpt" disabled>⚡ ChatGPT</button>
+          <button class="ai claude" data-ai="claude" disabled>⚡ Claude</button>
+          <button class="ai gemini" data-ai="gemini" disabled>⚡ Gemini</button>
+        </div>
+        <div id="refineBox" style="display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:12px">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px">✨ REFINE — sempurnakan tanpa isi ulang form</div>
+          <div class="chips" id="refineChips"></div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input id="refineInput" placeholder="Atau ketik instruksi sendiri… (mis. fokus ke ibu muda)" style="flex:1">
+            <button class="copybtn" id="refineAdd">Tambah</button>
+          </div>
+        </div>
+        <p class="hint">Jika prompt tak otomatis terisi di AI, klik <b>Copy Scaler Prompt</b> lalu paste manual.</p>
+      </div>
+    </div>
+    <footer class="appfoot">© 2026 by <b>thescalers.id</b></footer>
+  </main>
+  <div class="sb-backdrop" id="sbBackdrop"></div>
+</div>
+
+<div id="authScreen">
+  <div class="authcard" style="text-align:center">
+    <div class="brandbox" style="justify-content:center;padding:0 0 16px"><div class="logo"><img src="data:image/png;base64,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" alt="The Scalers"></div><div style="text-align:left"><h1>The Scalers</h1><p>CONTENT STUDIO</p></div></div>
+    <h2 id="authTitle">Masuk</h2>
+    <p class="hint" style="margin:2px 0 4px">Akses khusus member aktif.</p>
+    <input id="authEmail" type="email" placeholder="Email" autocomplete="email">
+    <input id="authPass" type="password" placeholder="Password" autocomplete="current-password">
+    <div class="auth-msg" id="authMsg"></div>
+    <button class="btn primary" id="authBtn" style="width:100%;margin-top:6px">Masuk</button>
+    <p class="authswitch">Belum punya akses? Hubungi admin via WA / email.</p>
+  </div>
+  <div id="welcomeLayer"><span class="spin big"></span><div id="welcomeMsg">Menyiapkan studio…</div></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ============ OPTION LISTS ============ */
+const O = {
+  TUJUAN:["Awareness (biar mereka tahu ada)","Edukasi (kasih value/info)","Engagement (like/komen/share)","Lead Gen (kumpulin kontak/WA)","Sales / Closing (langsung jual)","Retargeting (ingatkan lagi)","Trust Building (bangun kepercayaan)","Brand Recall (top of mind)","App Install (download)"],
+  PLATFORM:["TikTok / Reels (cepat, visual)","Instagram Carousel (swipe, edukasi)","YouTube (edukasi, deep)","Instagram Feed (estetika)","LinkedIn (formal, bisnis)","Facebook (emosional)","Twitter / X (short punchy)","Pinterest (search, visual)","Email (subject + preview)","Landing Page (conversion copy)"],
+  ROLE:["Advertiser / Seller (pemilik)","Affiliate Marketer (komisi)","Content Creator / Influencer","Dropshipper / Reseller","Agency Account","Product Manager (feature launch)","Community Manager"],
+  AVATAR:["The Founder/Owner (visioner, jujur)","UGC Creator (sok akrab, temenan)","Expert/Mentor (berwibawa)","Customer Testimonial (bukti sosial)","Voice Over / Faceless","Motion Graphic / Animation","Case Study Presenter (analisis)"],
+  JENIS_KONTEN:["Konten Ads (berbayar)","Affiliate Review (honest)","Organik Harian (consistent)","Soft Selling (halus, edukasi)","Hard Selling / Closing (tegas)","Edu-Content (pure value)","Trend Jacking / Viral Sound","Case Study (masalah-solusi)","Behind The Scenes (BTS)","Product Launch / Teaser","Webinar / Live Promo"],
+  FORMAT_DURASI:["Video 15–30 detik (super short)","Video 30–60 detik (standard)","Video 60–90 detik (medium)","Carousel 5–10 slide","Story 3–5 slide","Reels (faceless/stock)","YouTube Shorts (vertical)","Caption Only (foto statis)"],
+  VISUAL_STYLE:["Talking Head (wajah full)","POV (tangan pegang produk)","Green Screen (background info)","B-Roll / Product Focus","Lifestyle / Day in Life","Cinematic / Aesthetic (slowmo)","Split Screen (before/after)","ASMR (sound & texture)","Stop Motion","Animation (2D/3D)","Breaking News (ticker)"],
+  FRAMEWORK:["AIDCA (Attention–Interest–Desire–Conviction–Action)","PAS (Problem–Agitate–Solution)","BAB (Before–After–Bridge)","4P (Promise–Picture–Proof–Push)","SLAP (Stop–Look–Act–Purchase)","StoryBrand (Hero–Problem–Guide–Plan–Action)","ABT (And–But–Therefore)","Hero's Journey","Hook–Story–Offer (HSO)","QUEST","FAB (Features–Advantages–Benefits)","PASTOR","Problem–Promise–Proof","The 3 Reason Why"],
+  HOOK:["Pattern Interrupt (gerakan/suara aneh)","Negative Hook (curhat masalah)","Specific Number (3 alasan, 7 hari)","Question Based (pancing pertanyaan)","Story Hook (langsung cerita)","Statistik / Data (fakta mengejutkan)","Flashback / Nostalgia","Direct Question (yes/no)"],
+  AWARENESS:["Unaware (tidak tahu masalahnya)","Problem Aware (tau masalah, cari solusi)","Solution Aware (bandingin produk)","Most Aware (siap beli, butuh dorongan)"],
+  PSYCHO:["Pain-Averse (takut rugi/salah pilih)","Status Seeker (ingin terlihat keren)","Skeptic (butuh bukti logis)","Impulse Buyer (gampang FOMO)","Value Seeker (cari hemat)","Eco-Conscious (peduli lingkungan)","Tech Savvy (early adopter)","Family Oriented (fokus keluarga)","Luxury / High-End"],
+  TARGET:["Business Owner (UMKM / Brand)","Founder Startup (early stage)","Performance Marketer / Media Buyer","Digital Marketing Manager","Content Strategist","Seller Marketplace (Shopee/Tokopedia)","Reseller / Dropshipper","Distributor / Grosir","Brand Lokal / D2C","Content Creator / Affiliate","Influencer (Nano / Micro)","Coach / Mentor / Trainer","Educator / Course Creator","Sales Team / Leader","Franchise Owner","Owner Toko Offline","HR / People Ops","Mahasiswa / Fresh Graduate","Umum (general audience)"],
+  NICHE:["General (aman bebas)","Beauty / Skincare (soft claim)","Health / Medical (klaim medis dilarang)","Financial / Investment (disclaimer wajib)","Food & Beverage (halal/sehat)"],
+  JENIS_PRODUK:["Digital (Ebook / Template)","Digital (Mini Course / Video)","Digital (Membership / Komunitas)","Jasa (Agency / Freelance)","Jasa (Konsultasi 1:1)","Jasa (Done-For-You)","Fisik (Skincare / Fashion)","Fisik (Food & Beverage)","Fisik (Wellness / Kesehatan)","Fisik (Home & Living)","Fisik (Gadget / Aksesoris)","Fisik (Perhiasan / Meaningful Jewelry)","Fisik (Gift / Hadiah)","SaaS / Software","App / Mobile","Kursus / Coaching","Event / Webinar"],
+  TONE:["Santai & Relatable","Edukatif & Profesional","Urgent & Direct (agresif)","Gen-Z / Anak Jaksel (gaul)","Witty & Humorous (lucu)","Empathetic (empati)","Minimalist (singkat padat)"],
+  CTA:["Klik link di bio","DM / Chat sekarang","Comment \"INFO\"","Follow & Save","Beli sekarang","Daftar sekarang","Start free trial","Download asset / e-book"],
+  BAHASA:["Bahasa Indonesia","Bahasa Indonesia (casual/gaul)","English","Mix ID + English (Jaksel)"],
+  FORMAT_IDE:["Bebas (campur)","Video Pendek / Reels","Carousel","Story","Single Image + Caption","Live / Webinar"],
+  VISUAL_CAROUSEL:["Minimalis (teks dominan)","Bold & Colorful","Editorial / Magazine","Foto Produk + Overlay","Ilustrasi / Doodle","Data & Chart","Quote Cards","Step-by-step Numbered","Before/After","Meme / Relatable","Tutorial Screenshot","Premium / Luxury Dark"],
+  JUMLAH_IDE:["5 ide","10 ide","15 ide","20 ide"],
+  JUMLAH_HOOK:["5 hook","10 hook","15 hook"],
+  JUMLAH_SCRIPT:["1 script","2 script (A/B)","3 script (A/B/C)","4 script","5 script"],
+  JUMLAH_SLIDE:["5 slide","7 slide","8 slide","10 slide"],
+  JUMLAH_ITER:["5 iterasi","10 iterasi","15 iterasi","20 iterasi"],
+  AREA:["Keuangan / Finansial","Bisnis / Entrepreneurship","Content Creation / Sosial Media","Produktivitas / Self-development","Karier / Pekerjaan","Kesehatan / Lifestyle","Teknologi / AI","Pendidikan / Belajar","Relationship / Psikologi","Parenting / Keluarga"],
+  TUJUAN_EDU:["Edukasi murni (kasih ilmu)","Inspirasi / Motivasi","Bangun personal brand / otoritas","Edutainment (hibur sambil edukasi)","Ajak diskusi / engagement"],
+  GAYA_CERITA:["Storytelling pribadi (pengalaman)","Pelajaran dari kegagalan","Mitos vs Fakta","Tutorial step-by-step","Listicle (X tips/hal)","Hot-take / opini berani","Studi kasus / contoh nyata","Analogi sederhana","Q&A / jawab pertanyaan umum"],
+  CTA_SOFT:["Follow & Save","Share ke teman","Komen pengalamanmu","Simpan buat nanti","Ikuti seri kontennya","Tanpa CTA (murni edukasi)"],
+  PANJANG:["Pendek (1–2 kalimat)","Sedang (3–5 kalimat)","Panjang (storytelling)"],
+  EMOJI:["Pakai emoji (secukupnya)","Tanpa emoji"]
+};
+
+/* ============ GENERATORS CONFIG ============ */
+// field: {k, label, type:'select'|'text'|'textarea'|'checks', opt, ph, req(default true), custom(default true), def(index)}
+const GEN = {
+  script:{ name:"Content Script Generator", icon:"📝",
+    sections:[
+      {n:1,t:"Konteks & Platform",f:[
+        {k:"tujuan",label:"Tujuan Utama",opt:"TUJUAN"},
+        {k:"platform",label:"Platform Target",opt:"PLATFORM"},
+        {k:"role",label:"Role Pengguna",opt:"ROLE"},
+        {k:"avatar",label:"Avatar / Persona",opt:"AVATAR"}]},
+      {n:2,t:"Spesifikasi Konten",f:[
+        {k:"jenis",label:"Jenis Konten",opt:"JENIS_KONTEN"},
+        {k:"format",label:"Format & Durasi",opt:"FORMAT_DURASI"},
+        {k:"visual",label:"Gaya Visual",opt:"VISUAL_STYLE",full:true}]},
+      {n:3,t:"Strategi Copywriting",f:[
+        {k:"framework",label:"Framework Copy",opt:"FRAMEWORK"},
+        {k:"hook",label:"Hook Pembuka",opt:"HOOK"}]},
+      {n:4,t:"Target Audience",f:[
+        {k:"awareness",label:"Level Awareness",opt:"AWARENESS"},
+        {k:"psycho",label:"Psikografis",opt:"PSYCHO"},
+        {k:"target",label:"Target Market",opt:"TARGET"},
+        {k:"niche",label:"Compliance / Niche",opt:"NICHE"}]},
+      {n:5,t:"Detail Produk",f:[
+        {k:"prodName",label:"Nama Produk",type:"text",ph:"Contoh: Serum Glowing A",full:true},
+        {k:"prodType",label:"Jenis Produk",opt:"JENIS_PRODUK"},
+        {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
+        {k:"pain",label:"Masalah Audience (Pain)",type:"textarea",ph:"Contoh: Wajah kusam",full:true},
+        {k:"benefit",label:"Solusi / Benefit Utama",type:"textarea",ph:"Contoh: Glowing 7 hari",full:true},
+        {k:"usp",label:"USP / Kenapa beli di sini",type:"textarea",ph:"Contoh: BPOM, garansi 30 hari",full:true},
+        {k:"cta",label:"Call to Action",opt:"CTA"}]},
+      {n:6,t:"Output",f:[
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0},
+        {k:"qty",label:"Jumlah Variasi Script",opt:"JUMLAH_SCRIPT",def:0,custom:false},
+        {k:"extras",label:"Tambahan",type:"checks",full:true,req:false,
+          items:["Saran visual / B-roll per bagian","Caption + hashtag siap pakai","Variasi CTA alternatif"]}]}
+    ],
+    prompt:s=>{
+      let p=`### CONTENT SCRIPT GENERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah Senior Direct-Response Copywriter & Creative Strategist untuk pasar Indonesia, ahli mengubah brief jadi script yang menjual tanpa terdengar "jualan".\n\n`;
+      p+=`**TUGAS:**\nBuat ${s.qty} variasi ${(s.jenis||'konten').toLowerCase()} untuk ${s.platform||'platform terpilih'} produk "${s.prodName}". Tiap variasi WAJIB beda angle & hook (bukan parafrase).\n\n`;
+      p+=`**KONTEKS & PRODUK:**\n* Produk: ${s.prodName}${s.prodType?` (${s.prodType})`:''}\n`+L2("Role pembuat",s.role)+L2("Persona yang bicara",s.avatar)+L2("Masalah audiens (pain)",s.pain)+L2("Solusi/benefit",s.benefit)+L2("USP / alasan beli",s.usp);
+      p+=`\n**AUDIENS:**\n`+L2("Target market",s.target)+L2("Level awareness",s.awareness)+L2("Psikografis",s.psycho);
+      p+=`\n**STRATEGI:**\n`+L2("Framework copy",s.framework)+L2("Tipe hook",s.hook)+L2("Format & durasi",s.format)+L2("Gaya visual",s.visual)+L2("Tone",s.tone)+L2("CTA",s.cta);
+      p+=tacticalBlock(s);
+      p+=`\n**ATURAN OUTPUT:**\n`;
+      p+=`* Kunci pada SATU key message utama yang lengket di kepala audiens.\n`;
+      p+=`* Bangun resonansi emosional: sentuh pain "${s.pain||'—'}" / desire di balik "${s.benefit||'—'}", jangan cuma sebut fitur.\n`;
+      p+=`* IKUTI STRUKTUR khusus jenis konten "${s.jenis||'umum'}": ${structFor(s.jenis)}. JANGAN pakai struktur generik yang sama untuk semua jenis.\n`;
+      p+=`* Di dalam body, susun argumen mengikuti alur framework: ${fwFlow(s.framework)}.\n`;
+      p+=`* Hook 3 detik pertama wajib menampar. Akhiri dengan CTA: ${s.cta||'ajakan jelas'}.\n`;
+      p+=`* Beri heading jelas tiap script: "📝 SCRIPT A", "📝 SCRIPT B", dst — pisahkan script dari catatan/analisis apa pun. Untuk video, sisipkan arahan visual singkat dalam (kurung).\n`;
+      (s.extras||[]).forEach(e=>{p+=`* ${e}.\n`;});
+      p+=`* Bahasa ${s.bahasa}, natural seperti orang ngobrol; HINDARI pembuka klise & kalimat korporat.\n`;
+      p+=`\nLangsung tulis script-nya, tanpa basa-basi pembuka.`;
+      return p;
+    }},
+
+  creator:{ name:"Content Creator Script Generator", icon:"🎬",
+    sections:[
+      {n:1,t:"Topik & Audiens",f:[
+        {k:"topik",label:"Topik yang mau dibahas / diajarkan",type:"textarea",ph:"Contoh: 3 kesalahan nabung yang bikin gaji numpang lewat",full:true},
+        {k:"area",label:"Area / Bidang",opt:"AREA",req:false},
+        {k:"target",label:"Target Penonton",opt:"TARGET",def:18},
+        {k:"platform",label:"Platform",opt:"PLATFORM",def:0}]},
+      {n:2,t:"Gaya & Tujuan",f:[
+        {k:"tujuan",label:"Tujuan Konten",opt:"TUJUAN_EDU",def:0},
+        {k:"gaya",label:"Gaya Cerita",opt:"GAYA_CERITA",def:0},
+        {k:"hook",label:"Tipe Hook",opt:"HOOK",def:4},
+        {k:"tone",label:"Tone",opt:"TONE",def:0}]},
+      {n:3,t:"Output",f:[
+        {k:"format",label:"Format & Durasi",opt:"FORMAT_DURASI",def:1},
+        {k:"takeaway",label:"Satu Pesan Utama / Takeaway (opsional)",type:"text",ph:"Contoh: Mulai nabung dari nominal kecil lebih penting dari nunggu gaji besar",req:false,full:true},
+        {k:"cta",label:"CTA Lembut",opt:"CTA_SOFT",def:0},
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0},
+        {k:"jumlah",label:"Jumlah Variasi Script",opt:"JUMLAH_SCRIPT",def:0,custom:false}]}
+    ],
+    prompt:s=>{
+      let p=`### CONTENT CREATOR SCRIPT GENERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah Content Coach & Storyteller untuk kreator Indonesia. Spesialisasi: mengubah topik jadi script konten EDUKASI/STORYTELLING yang ber-value tinggi — TANPA jualan produk. Tujuannya membangun audiens & otoritas, bukan closing.\n\n`;
+      p+=`**TUGAS:**\nBuat ${s.jumlah} variasi script ${s.format||''} untuk ${s.platform||'platform terpilih'} dengan topik: "${s.topik}". Tiap variasi WAJIB beda angle.\n\n`;
+      p+=`**KONTEKS:**\n`+L2("Area/bidang",s.area)+L2("Target penonton",s.target)+L2("Tujuan konten",s.tujuan)+L2("Gaya cerita",s.gaya)+L2("Tipe hook",s.hook)+L2("Tone",s.tone)+L2("Takeaway utama",s.takeaway);
+      p+=tacticalBlock(s);
+      p+=`\n**ATURAN OUTPUT:**\n`;
+      p+=`* VALUE-FIRST: murni beri ilmu/cerita yang berguna. DILARANG jualan produk atau hard-sell.\n`;
+      p+=`* Kunci pada SATU takeaway yang jelas & gampang diingat${s.takeaway?`: "${s.takeaway}"`:''}.\n`;
+      p+=`* Storytelling kuat bergaya "${s.gaya||'cerita relatable'}" — bikin penonton merasa "ini gue banget".\n`;
+      p+=`* IKUTI STRUKTUR sesuai gaya cerita "${s.gaya||'storytelling'}": ${gayaStruct(s.gaya)}. CTA lembut: ${s.cta||'ajak engagement'}. Hook 3 detik pertama wajib menohok.\n`;
+      p+=`* Beri heading jelas tiap script: "📝 SCRIPT A", "📝 SCRIPT B", dst. Untuk video sisipkan arahan visual singkat dalam (kurung).\n`;
+      p+=`* Bahasa ${s.bahasa}, natural seperti ngobrol; HINDARI pembuka klise & gaya menggurui.\n`;
+      p+=`\nLangsung tulis script-nya.`;
+      return p;
+    }},
+
+  idea:{ name:"Content Idea Generator", icon:"💡",
+    sections:[
+      {n:1,t:"Identitas & Tujuan",f:[
+        {k:"tujuan",label:"Tujuan Utama Ide",opt:"TUJUAN"},
+        {k:"platform",label:"Platform Utama",opt:"PLATFORM"},
+        {k:"role",label:"Role / Kreator",opt:"ROLE"}]},
+      {n:2,t:"Target & Niche",f:[
+        {k:"target",label:"Target Market",opt:"TARGET"},
+        {k:"awareness",label:"Level Awareness",opt:"AWARENESS"},
+        {k:"niche",label:"Compliance / Niche",opt:"NICHE"}]},
+      {n:3,t:"Tema & Output",f:[
+        {k:"tema",label:"Topik / Tema Besar",type:"textarea",ph:"Contoh: Diet sehat untuk pekerja kantoran",full:true},
+        {k:"formatIde",label:"Format Konten",opt:"FORMAT_IDE",def:0},
+        {k:"jumlah",label:"Jumlah Ide",opt:"JUMLAH_IDE",def:1,custom:false},
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
+    ],
+    prompt:s=>{
+      let p=`### CONTENT IDEA GENERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah Content Strategist senior yang ahli menemukan angle konten unik & anti-mainstream.\n\n`;
+      p+=`**TUGAS:**\nHasilkan ${s.jumlah} ide konten orisinal tentang "${s.tema}" untuk ${s.platform||'platform terpilih'}.\n\n`;
+      p+=`**KONTEKS:**\n`+L2("Tujuan",s.tujuan)+L2("Role kreator",s.role)+L2("Target market",s.target)+L2("Level awareness",s.awareness)+L2("Niche/compliance",s.niche)+L2("Format dominan",s.formatIde);
+      p+=tacticalBlock(s);
+      p+=`\n**ATURAN OUTPUT:**\n`;
+      p+=`* Sajikan sebagai TABEL: No | Judul/Angle Ide | Hook Pembuka (1 kalimat) | Key Message | Format | Emosi yang dibidik.\n`;
+      p+=`* Tiap ide WAJIB punya SATU key message jelas & membidik emosi spesifik (takut, FOMO, lega, bangga, penasaran, dll).\n`;
+      p+=`* Hindari ide klise/pasaran — cari sudut segar & spesifik. Variasikan angle: edukasi, kontroversi, storytelling, listicle, myth-busting, behind-the-scenes.\n`;
+      p+=`* Bahasa ${s.bahasa}.\n\nLangsung tampilkan tabelnya, tanpa pengantar.`;
+      return p;
+    }},
+
+  hook:{ name:"Hook Generator", icon:"⚡",
+    sections:[
+      {n:1,t:"Konteks & Audiens",f:[
+        {k:"topik",label:"Topik Utama Konten",type:"textarea",ph:"Contoh: Cara hemat belanja bulanan",full:true},
+        {k:"target",label:"Target Audiens",opt:"TARGET"},
+        {k:"awareness",label:"Level Awareness",opt:"AWARENESS"}]},
+      {n:2,t:"Masalah & Sudut Pandang",f:[
+        {k:"psycho",label:"Psikografis",opt:"PSYCHO"},
+        {k:"tone",label:"Tone (Gaya Bahasa)",opt:"TONE"},
+        {k:"pain",label:"Pain Point Utama (Masalah)",type:"textarea",ph:"Contoh: Gaji numpang lewat",full:true},
+        {k:"desire",label:"Desire Utama (Impian)",type:"textarea",ph:"Contoh: Punya tabungan tenang",full:true}]},
+      {n:3,t:"Strategi & Output",f:[
+        {k:"hookStr",label:"Strategi Hook Spesifik",opt:"HOOK"},
+        {k:"platform",label:"Format Platform Target",opt:"PLATFORM"},
+        {k:"jumlah",label:"Jumlah Variasi Hook",opt:"JUMLAH_HOOK",def:1,custom:false},
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
+    ],
+    prompt:s=>{
+      let p=`### HOOK GENERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah pakar Hook & Scroll-Stopping Copy tingkat atas yang paham psikologi audiens.\n\n`;
+      p+=`**TUGAS:**\nBuat ${s.jumlah} variasi hook pembuka (3 detik pertama) untuk konten "${s.topik}" di ${s.platform||'platform terpilih'}.\n\n`;
+      p+=`**KONTEKS & AUDIENS:**\n`+L2("Target audiens",s.target)+L2("Level awareness",s.awareness);
+      p+=`\n**PSIKOLOGI:**\n`+L2("Karakter psikologi",s.psycho)+L2("Pain point (dihindari)",s.pain)+L2("Desire (diimpikan)",s.desire);
+      p+=`\n**STRATEGI:**\n`+L2("Tone/gaya bahasa",s.tone)+L2("Strategi hook utama",s.hookStr);
+      p+=tacticalBlock(s);
+      p+=`\n**ATURAN OUTPUT:**\n`;
+      p+=`* Kelompokkan hook per tipe/angle (angka, pertanyaan, kontroversi, cerita, statistik).\n`;
+      p+=`* Beri nomor jelas tiap hook ("HOOK 1", "HOOK 2", …). Tiap hook: 1 kalimat tajam + (alasan psikologis kenapa nendang) + (emosi yang dipicu).\n`;
+      p+=`* Tiap hook WAJIB menyentuh langsung pain "${s.pain||'—'}" atau desire "${s.desire||'—'}" dalam 3 detik.\n`;
+      p+=`* Bahasa ${s.bahasa}, gaya ${s.tone||'sesuai audiens'}.\n\nLangsung daftar hook-nya.`;
+      return p;
+    }},
+
+  caption:{ name:"Caption Generator", icon:"✍️",
+    sections:[
+      {n:1,t:"Platform & Tujuan",f:[
+        {k:"platform",label:"Platform Target",opt:"PLATFORM"},
+        {k:"tujuan",label:"Tujuan Postingan",opt:"TUJUAN"}]},
+      {n:2,t:"Konten & Gaya",f:[
+        {k:"topik",label:"Topik / Isi Konten Utama",type:"textarea",ph:"Jelaskan singkat isi/foto/video yang mau di-caption…",full:true},
+        {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
+        {k:"framework",label:"Framework Copywriting",opt:"FRAMEWORK"}]},
+      {n:3,t:"Output",f:[
+        {k:"panjang",label:"Panjang Caption",opt:"PANJANG",def:1,custom:false},
+        {k:"cta",label:"Call to Action",opt:"CTA"},
+        {k:"emoji",label:"Penggunaan Emoji",opt:"EMOJI",def:0,custom:false},
+        {k:"keyword",label:"Fokus Keyword / Hashtag (opsional)",type:"text",ph:"Contoh: skincare lokal",req:false,full:true},
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
+    ],
+    prompt:s=>{
+      let p=`### CAPTION GENERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah Social Media Copywriter yang jago bikin caption ber-engagement tinggi & terasa manusiawi.\n\n`;
+      p+=`**TUGAS:**\nTulis 3 variasi caption ${s.platform||'sosial media'} untuk konten:\n"${s.topik}"\n\n`;
+      p+=`**KONTEKS:**\n`+L2("Tujuan postingan",s.tujuan)+L2("Tone",s.tone)+L2("Framework",s.framework)+L2("Panjang",s.panjang)+L2("CTA",s.cta);
+      p+=tacticalBlock(s);
+      p+=`\n**ATURAN OUTPUT:**\n`;
+      p+=`* Beri heading jelas tiap caption ("✍️ CAPTION A/B/C"); taruh hashtag di blok terpisah di bawahnya. Baris pertama tiap caption WAJIB hook scroll-stopper.\n`;
+      p+=`* Usung SATU key message & satu emosi dominan per caption.\n`;
+      p+=`* Susun mengikuti alur framework: ${fwFlow(s.framework)}. Panjang ${s.panjang}. ${s.emoji}.\n`;
+      p+=`* Akhiri dengan CTA: ${s.cta}. Format line-break rapi agar enak dibaca di ${s.platform||'feed'}.\n`;
+      p+=`* Tambahkan 1 set 8–12 hashtag relevan`+(s.keyword?` (fokus keyword: ${s.keyword})`:"")+`.\n`;
+      p+=`* Bahasa ${s.bahasa}.\n\nLangsung tulis ketiga caption, diberi label A/B/C.`;
+      return p;
+    }},
+
+  carousel:{ name:"Carousel Generator", icon:"🖼️",
+    sections:[
+      {n:1,t:"Topik & Target",f:[
+        {k:"topik",label:"Topik / Judul Utama",type:"textarea",ph:"Contoh: 5 kesalahan pemula investasi",full:true},
+        {k:"target",label:"Target Market",opt:"TARGET"},
+        {k:"tujuan",label:"Tujuan Carousel",opt:"TUJUAN"}]},
+      {n:2,t:"Gaya Bercerita",f:[
+        {k:"slide",label:"Jumlah Slide",opt:"JUMLAH_SLIDE",def:1,custom:false},
+        {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
+        {k:"framework",label:"Framework Copywriting",opt:"FRAMEWORK"},
+        {k:"avatar",label:"Avatar / Persona Bercerita",opt:"AVATAR"}]},
+      {n:3,t:"Visual & Output",f:[
+        {k:"visualC",label:"Panduan Visual (Desain)",opt:"VISUAL_CAROUSEL"},
+        {k:"cta",label:"Call to Action",opt:"CTA"},
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
+    ],
+    prompt:s=>{
+      let p=`### CAROUSEL GENERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah Content Designer & Copywriter Carousel Instagram yang swipe-rate-nya tinggi. Sampaikan pesan seolah-olah Anda adalah: ${s.avatar||'kreator'}.\n\n`;
+      p+=`**TUGAS:**\nBuat outline carousel persis ${s.slide} untuk topik "${s.topik}".\n\n`;
+      p+=`**KONTEKS:**\n`+L2("Target market",s.target)+L2("Tujuan",s.tujuan)+L2("Tone",s.tone)+L2("Framework",s.framework)+L2("Panduan visual",s.visualC)+L2("CTA",s.cta);
+      p+=tacticalBlock(s);
+      p+=`\n**STRUKTUR PER SLIDE (WAJIB):**\n`;
+      p+=`* Slide 1 = COVER/HOOK: judul menampar + janji benefit yang bikin orang nge-swipe.\n`;
+      p+=`* Tiap slide: [Headline ringkas] + [Sub-teks penjelas bila perlu] + (Visual Idea: arahan desain berbasis "${s.visualC||'gaya bebas'}").\n`;
+      p+=`* Slide terakhir = CTA: ${s.cta||'ajakan jelas'}.\n`;
+      p+=`* Alur antar-slide nyambung & swipe-worthy, ikuti framework: ${fwFlow(s.framework)}. Usung 1 key message utama lintas slide.\n`;
+      p+=`* Bahasa ${s.bahasa}, gaya ${s.tone||'sesuai target'}.\n\nTulis per slide (Slide 1 … Slide ${s.slide}).`;
+      return p;
+    }},
+
+  winning:{ name:"Winning Ads Iterator", icon:"🏆",
+    sections:[
+      {n:1,t:"Iklan Pemenang",f:[
+        {k:"winScript",label:"Script / Copy Pemenang (tempel di sini)",type:"textarea",ph:"Tempel script iklan yang sudah terbukti perform / menang…",full:true},
+        {k:"winPlatform",label:"Platform Asal",opt:"PLATFORM"},
+        {k:"winElement",label:"Elemen yang bikin menang (opsional)",type:"textarea",ph:"mis. hook soal harga, pakai testimoni, demo produk",req:false,full:true}]},
+      {n:2,t:"Strategi Iterasi",f:[
+        {k:"vary",label:"Variasikan (boleh diubah)",type:"checks",full:true,req:false,items:["Hook baru","Angle/sudut baru","Format lain (UGC/talking head/story)","Durasi beda (15s/30s/60s)","Persona/avatar beda","Awareness level beda (dingin vs hangat)","Tone/demografi beda"]},
+        {k:"keep",label:"Pertahankan (dikunci, jangan diubah)",type:"checks",full:true,req:false,items:["Offer / penawaran","Call to action (CTA)","Struktur alur","Hook asli","Benefit utama","Bukti / proof / testimoni"]}]},
+      {n:3,t:"Konteks Produk (auto dari Brand Profile)",f:[
+        {k:"prodName",label:"Produk",type:"text",ph:"Nama produk",req:false,full:true},
+        {k:"prodDesc",label:"Penjelasan Produk (isi kalau produknya beda / ganti dari iklan asli)",type:"textarea",ph:"Jelaskan produk yang mau diiterasikan: manfaat utama, target, penawaran/harga...",req:false,full:true},
+        {k:"target",label:"Target Market",opt:"TARGET",req:false},
+        {k:"niche",label:"Compliance / Niche",opt:"NICHE",req:false},
+        {k:"tone",label:"Tone",opt:"TONE",req:false}]},
+      {n:4,t:"Output",f:[
+        {k:"jumlah",label:"Jumlah Iterasi",opt:"JUMLAH_ITER",def:1,custom:false},
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
+    ],
+    prompt:s=>{
+      const vary=(s.vary||[]).length?s.vary.join(', '):'hook, angle, dan format';
+      const keep=(s.keep||[]).length?s.keep.join(', '):'offer, CTA, dan benefit utama';
+      let p=`### WINNING ADS ITERATOR — PROMPT (ADVANCED) ###\n\n`;
+      p+=`Anda adalah Media Buyer & Creative Strategist senior yang ahli men-scale iklan pemenang TANPA merusak DNA-nya.\n\n`;
+      p+=`Iklan yang TERBUKTI MENANG:\n\"\"\"\n${s.winScript}\n\"\"\"\n`;
+      if(s.winElement) p+=`Elemen pemenang (diduga): ${s.winElement}.\n`;
+      p+=`\n**TUGAS:**\n1) Analisis 2–3 alasan PSIKOLOGIS kenapa iklan ini menang.\n2) Buat ${s.jumlah} iterasi baru untuk scaling.\n\n`;
+      p+=`**KONTEKS:**\n`+L2("Platform",s.winPlatform)+L2("Produk",s.prodName)+L2("Penjelasan produk",s.prodDesc)+L2("Target",s.target)+L2("Niche",s.niche)+L2("Tone",s.tone);
+      p+=tacticalBlock(s);
+      p+=`\n**ATURAN ITERASI:**\n`;
+      p+=`* VARIASIKAN (boleh diubah): ${vary}.\n`;
+      p+=`* PERTAHANKAN (kunci, JANGAN dirusak): ${keep}.\n`;
+      p+=`* Format tiap iterasi: judul "Iterasi N — [nama angle]", lalu 3 baris ringkas (Apa yang diubah / Key message / Alasan psikologis) — analisis ini WAJIB ada. SETELAH itu tulis script finalnya di bawah heading "📝 SCRIPT:" — JANGAN beri label "Copy". Pisahkan jelas catatan analisis dari script.\n`;
+      p+=`* Jaga DNA pemenang: tiap iterasi harus terasa 'saudara' dari aslinya, bukan iklan acak.\n`;
+      if(s.prodDesc) p+=`* CATATAN: produk untuk iterasi ini BERBEDA dari iklan asli — sesuaikan benefit, klaim, & detail ke produk baru tsb, tapi tetap pertahankan struktur & pola pemenang dari iklan asli.\n`;
+      p+=`* Bahasa ${s.bahasa}.\n\nTulis analisis dulu, lalu daftar iterasi (Iterasi 1, 2, dst).`;
+      return p;
+    }}
+};
+
+/* ============ ENGINE ============ */
+const CUSTOM='__custom__';
+function L(label,v){return v? `- ${label}: ${v}\n` : '';}
+function L2(label,v){return v? `* ${label}: ${v}\n` : '';}
+
+/* ===== RULE INJECTION: tiap pilihan -> instruksi taktis ===== */
+const R={
+  awareness:[
+    ["Unaware","Audiens belum sadar masalahnya — JANGAN langsung jualan/sebut produk. Buka dengan problem/cerita relatable dulu."],
+    ["Problem Aware","Audiens sadar masalah & cari solusi — agitasi masalahnya dulu, lalu posisikan solusi sebagai jawaban."],
+    ["Solution Aware","Audiens sedang membandingkan solusi — tonjolkan diferensiasi & bukti kenapa pilih yang ini."],
+    ["Most Aware","Audiens siap beli — langsung tawarkan value/penawaran/urgency, minim basa-basi."]
+  ],
+  psycho:[
+    ["Pain-Averse","Tekankan jaminan/garansi & risiko bila tidak bertindak (loss aversion)."],
+    ["Status","Tonjolkan gengsi, eksklusivitas, dan bagaimana produk menaikkan citra diri."],
+    ["Skeptic","Sertakan bukti logis: data, testimoni, before-after, mekanisme cara kerja."],
+    ["Impulse","Pakai FOMO, urgency, scarcity, dan CTA cepat."],
+    ["Value Seeker","Tekankan harga hemat, value for money, diskon/bonus."],
+    ["Eco","Pakai narasi sustainability, ramah lingkungan, dampak positif."],
+    ["Tech Savvy","Soroti inovasi, fitur canggih, spesifikasi, status early adopter."],
+    ["Family","Hubungkan dengan keluarga, anak, keamanan, kebersamaan."],
+    ["Luxury","Pakai diksi premium & eksklusif; hindari kesan murahan."]
+  ],
+  platform:[
+    ["Carousel","Format carousel: pecah jadi slide — slide 1 cover/hook, tiap slide 1 ide ringkas, slide terakhir CTA. Teks padat & mudah dibaca di layar HP."],
+    ["TikTok","Format vertikal cepat: hook 3 detik pertama wajib menampar, ritme cepat, bahasa santai."],
+    ["YouTube","Boleh lebih panjang & mendalam: struktur intro–isi–outro, jaga retensi tiap ~30 detik."],
+    ["Instagram","Visual estetik: caption rapi, baris pertama hook, manfaatkan line-break/spasi."],
+    ["LinkedIn","Tone profesional & kredibel, insight bisnis; hindari clickbait murahan."],
+    ["Facebook","Sentuh emosi & cerita naratif; cocok demografi lebih dewasa."],
+    ["Twitter","Sangat ringkas & punchy: 1 ide kuat per kalimat, hook di kalimat pertama."],
+    ["Pinterest","Optimalkan untuk search: keyword di judul, visual vertikal, tips actionable."],
+    ["Email","Subject line wajib bikin penasaran + preview text; arahkan ke 1 CTA jelas."],
+    ["Landing Page","Copy konversi: headline-benefit, proof, urgency, 1 CTA dominan."]
+  ],
+  visual:[
+    ["Talking Head","Arahan visual: bicara langsung ke kamera, ekspresif, jaga eye-contact."],
+    ["POV","Arahan visual: kamera selfie/POV, tunjukkan penggunaan produk secara langsung."],
+    ["Green Screen","Arahan visual: pembicara di depan background grafik/screenshot/data."],
+    ["B-Roll","Arahan visual: fokus tekstur/detail produk tanpa wajah, pakai voiceover."],
+    ["Lifestyle","Arahan visual: tampilkan produk dalam konteks keseharian nyata."],
+    ["Cinematic","Arahan visual: slow-motion, lighting estetik, transisi halus."],
+    ["Split Screen","Arahan visual: sandingkan before vs after berdampingan."],
+    ["ASMR","Arahan visual: tonjolkan suara & tekstur, minim narasi."],
+    ["Stop Motion","Arahan visual: gerak frame-by-frame untuk highlight poin secara playful."],
+    ["Animation","Arahan visual: animasi 2D/3D untuk memvisualkan konsep yang abstrak."],
+    ["Breaking News","Arahan visual: gaya berita/ticker untuk kesan urgent & penting."]
+  ],
+  jenis:[
+    ["Trend Jacking","Hook wajib sinkron dengan audio/tren viral yang sedang naik."],
+    ["Hard Selling","Tegas & langsung tawarkan; dorongan beli kuat + urgency."],
+    ["Soft Selling","Halus: edukasi/cerita dulu, jualan diselipkan di akhir."],
+    ["Case Study","Struktur: masalah → proses → hasil terukur (angka)."],
+    ["Behind","Tunjukkan proses jujur di balik layar untuk membangun trust."],
+    ["Affiliate","Jujur & seimbang (plus-minus), tetap arahkan ke CTA afiliasi."]
+  ],
+  hook:[
+    ["Pattern Interrupt","Buka dengan gerakan/suara/visual tak terduga."],
+    ["Negative","Buka dengan keluhan/masalah yang relatable."],
+    ["Specific Number","Buka dengan angka spesifik (mis. '3 alasan', '7 hari')."],
+    ["Question","Buka dengan pertanyaan yang memancing jawaban di benak audiens."],
+    ["Story","Buka langsung di tengah adegan cerita."],
+    ["Statistik","Buka dengan fakta/statistik mengejutkan."],
+    ["Flashback","Buka dengan kenangan/nostalgia yang menyentuh."]
+  ],
+  tone:[
+    ["Gen-Z","Diksi gaul Gen-Z: slang wajar, singkatan, emoji secukupnya."],
+    ["Urgent","Kalimat pendek & tegas, banyak verba aksi, ciptakan urgensi."],
+    ["Empathetic","Akui & validasi perasaan audiens, tunjukkan pengertian."],
+    ["Witty","Selipkan humor/pun relevan yang tidak garing."],
+    ["Edukatif","Jelas, terstruktur, kredibel, sedikit jargon."],
+    ["Minimalist","Sangat ringkas & padat, tanpa kata mubazir."],
+    ["Santai","Seperti ngobrol sama teman: hangat & personal."]
+  ],
+  niche:[
+    ["Medical","DILARANG klaim medis/menyembuhkan; pakai bahasa hati-hati & ajakan konsultasi."],
+    ["Financial","Sertakan disclaimer risiko; jangan menjanjikan keuntungan pasti."],
+    ["Beauty","Klaim halus, hindari over-claim; fokus pengalaman & hasil wajar."],
+    ["Food","Soroti rasa/kualitas/halal/kesehatan sesuai konteks."]
+  ],
+  target:[
+    ["Business Owner","Audiens pebisnis: bahasa to-the-point, fokus cuan/ROI/efisiensi, contoh kasus bisnis nyata."],
+    ["Founder","Audiens founder startup: visioner tapi praktis, fokus growth & traction."],
+    ["Owner Toko","Audiens pemilik toko: bahasa membumi, fokus jualan rame & untung."],
+    ["Franchise","Audiens franchise: fokus sistem, skalabilitas & konsistensi cabang."],
+    ["Distributor","Audiens distributor/grosir: fokus volume, margin & jaringan."],
+    ["Brand Lokal","Audiens brand lokal/D2C: fokus diferensiasi & loyalitas pelanggan."],
+    ["Performance Marketer","Audiens marketer/media buyer: boleh istilah marketing umum, fokus angka/ROAS/performa."],
+    ["Media Buyer","Audiens media buyer: fokus efisiensi iklan & hasil terukur."],
+    ["Digital Marketing","Audiens digital marketer: fokus strategi & metrik."],
+    ["Content Strategist","Audiens content strategist: fokus angle, hook & distribusi."],
+    ["Seller Marketplace","Audiens seller marketplace: bahasa praktis, fokus laku cepat & rating."],
+    ["Reseller","Audiens reseller/dropshipper: fokus cuan cepat tanpa ribet."],
+    ["Content Creator","Audiens kreator/affiliate: bahasa gaul-santai, fokus growth & engagement."],
+    ["Influencer","Audiens influencer: fokus personal brand & kolaborasi."],
+    ["Coach","Audiens coach/mentor: berwibawa tapi hangat, fokus transformasi & kredibilitas."],
+    ["Educator","Audiens edukator/course creator: fokus value & otoritas."],
+    ["Sales","Audiens sales: bahasa energik, fokus closing & target."],
+    ["HR","Audiens HR/people ops: profesional, fokus tim & produktivitas."],
+    ["Mahasiswa","Audiens mahasiswa/fresh grad: bahasa santai relatable, hindari jargon, contoh keseharian kampus/awal karier."],
+    ["Umum","Audiens umum: bahasa sehari-hari paling sederhana, hindari semua jargon."]
+  ],
+  avatar:[
+    ["Founder","Suara: visioner & jujur dari sudut pemilik yang peduli ('aku bikin ini karena...')."],
+    ["UGC","Suara: kayak temen lagi cerita (sok akrab), super casual & spontan ('eh aku mau spill...')."],
+    ["Expert","Suara: berwibawa & pintar, pakai data/logika, posisikan sebagai mentor."],
+    ["Testimonial","Sudut: 'aku user yang sudah coba' — bukti sosial, ceritakan pengalaman nyata."],
+    ["Voice Over","Tanpa wajah: tulis sebagai voice-over naratif + arahkan b-roll visual."],
+    ["Faceless","Tanpa wajah: naratif voice-over, deskripsikan visual pendukung."],
+    ["Motion","Gaya naratif untuk motion graphic/animasi, poin per poin visual."],
+    ["Case Study Presenter","Suara analitis: presentasikan data → proses → hasil secara terstruktur."]
+  ],
+  tujuan:[
+    ["Awareness","Fokus bikin AWARE/dikenal; JANGAN hard-sell; cukup tanam pesan utama."],
+    ["Edukasi","Fokus kasih ilmu/value; jualan diminimalkan."],
+    ["Engagement","Pancing interaksi: ajukan pertanyaan, ajak komen/share/tag."],
+    ["Lead Gen","Arahkan kumpulkan kontak; CTA ke DM/WA/link."],
+    ["Sales","Fokus dorong pembelian: benefit + urgency + CTA beli."],
+    ["Closing","Fokus closing: hilangkan keraguan, tawarkan, CTA tegas."],
+    ["Retargeting","Atasi keraguan orang yang sudah kenal: tonjolkan bukti/garansi/penawaran."],
+    ["Trust","Bangun kepercayaan: bukti, transparansi, testimoni."],
+    ["Brand Recall","Bikin mudah diingat: hook/tagline khas, konsisten karakter brand."],
+    ["App Install","Dorong download: tonjolkan kemudahan & manfaat instan."],
+    ["Inspirasi","Fokus memotivasi & menggugah emosi."],
+    ["personal brand","Tonjolkan kredibilitas & sudut pandang unik kreator."],
+    ["Edutainment","Hibur sambil edukasi: ringan, lucu, tetap berisi."],
+    ["diskusi","Pancing diskusi/opini: lempar pertanyaan terbuka."]
+  ],
+  format:[
+    ["15–30","Sangat ringkas: 1 ide utama saja, ritme cepat, sekitar 40-70 kata."],
+    ["30–60","Standar: hook-body-CTA padat, sekitar 80-130 kata."],
+    ["60–90","Lebih dalam: 2-3 poin, jaga retensi, sekitar 150-220 kata."],
+    ["Carousel","Pecah jadi slide; teks tiap slide ringkas & enak dibaca."],
+    ["Story","3-5 frame singkat; tiap frame 1 kalimat + ajakan swipe."],
+    ["Shorts","Vertikal cepat: hook 3 detik, ritme cepat, teks on-screen."],
+    ["Reels","Vertikal cepat: hook 3 detik, ritme cepat."],
+    ["Caption Only","Tanpa script video — tulis sebagai caption/teks foto."]
+  ],
+  prodType:[
+    ["Digital","Produk digital: tonjolkan akses instan, kepraktisan & hasil cepat."],
+    ["Jasa","Jasa: tonjolkan hasil akhir + proses/kepakaran, lawan rasa 'mahal' dengan nilai."],
+    ["Skincare","Skincare/fashion: tonjolkan sensasi pakai, hasil terlihat & rasa percaya diri."],
+    ["Food","F&B: tonjolkan rasa, tekstur & momen menikmati."],
+    ["Wellness","Wellness: tonjolkan rasa nyaman/sehat & perubahan yang dirasakan."],
+    ["Home & Living","Home & living: tonjolkan estetika & kenyamanan rumah."],
+    ["Gadget","Gadget/aksesoris: tonjolkan fitur, kemudahan & gaya."],
+    ["Perhiasan","Perhiasan/meaningful jewelry: tonjolkan MAKNA & emosi (cerita, hadiah, momen), bukan sekadar harga."],
+    ["Gift","Gift/hadiah: tonjolkan momen memberi & reaksi penerima."],
+    ["SaaS","SaaS/software: tonjolkan masalah yang dipecahkan & hemat waktu."],
+    ["App","App: tonjolkan kemudahan & manfaat harian."],
+    ["Kursus","Kursus/coaching: tonjolkan transformasi & kurikulum."],
+    ["Event","Event/webinar: tonjolkan pengalaman & insight yang didapat."]
+  ],
+  visualC:[
+    ["Minimalis","Desain minimalis: teks dominan, banyak ruang kosong, 1-2 warna, font besar."],
+    ["Bold","Desain bold & colorful: warna kontras, teks tebal, energik."],
+    ["Editorial","Gaya editorial/magazine: tata letak rapi, tipografi elegan."],
+    ["Foto Produk","Foto produk + overlay teks; tonjolkan detail produk."],
+    ["Ilustrasi","Ilustrasi/doodle: visual ramah & playful."],
+    ["Data","Visual data/chart: angka & grafik sederhana sebagai bukti."],
+    ["Quote","Quote cards: 1 kalimat kuat per slide, tipografi menonjol."],
+    ["Step","Numbered step-by-step: tiap slide 1 langkah bernomor."],
+    ["Before/After","Before/after: sandingkan kondisi sebelum vs sesudah."],
+    ["Meme","Gaya meme/relatable: visual lucu yang relate."],
+    ["Tutorial","Screenshot tutorial: tunjukkan langkah via tangkapan layar."],
+    ["Premium","Premium/luxury dark: nuansa gelap elegan, kesan mewah."]
+  ],
+  formatIde:[
+    ["Video Pendek","Optimalkan ide untuk video pendek/Reels: hook kuat & visual."],
+    ["Carousel","Optimalkan ide untuk carousel: bisa dipecah jadi slide bertahap."],
+    ["Story","Optimalkan ide untuk story: ringan & cepat."],
+    ["Single Image","Optimalkan ide untuk 1 gambar + caption: 1 pesan kuat."],
+    ["Live","Optimalkan ide untuk live/webinar: topik yang bisa dibahas mendalam."]
+  ]
+};
+function ruleFor(map,val){ if(!val) return ''; for(const[k,instr] of map){ if(val.includes(k)) return instr; } return ''; }
+function tacticalBlock(s){
+  const out=[]; const add=x=>{ if(x) out.push('* '+x); };
+  add(ruleFor(R.target,s.target));
+  add(ruleFor(R.avatar,s.avatar));
+  add(ruleFor(R.tujuan,s.tujuan));
+  add(ruleFor(R.awareness,s.awareness));
+  add(ruleFor(R.psycho,s.psycho));
+  add(ruleFor(R.platform,s.platform||s.winPlatform));
+  add(ruleFor(R.format,s.format));
+  add(ruleFor(R.visual,s.visual));
+  add(ruleFor(R.visualC,s.visualC));
+  add(ruleFor(R.jenis,s.jenis));
+  add(ruleFor(R.prodType,s.prodType));
+  add(ruleFor(R.hook,s.hook||s.hookStr));
+  add(ruleFor(R.tone,s.tone));
+  add(ruleFor(R.niche,s.niche));
+  add(ruleFor(R.formatIde,s.formatIde));
+  return out.length? `\n**ATURAN EKSEKUSI TAKTIS (WAJIB diikuti):**\n${out.join('\n')}\n` : '';
+}
+/* Struktur output berbasis JENIS KONTEN — tiap jenis punya alur sendiri */
+const STRUKTUR=[
+  ["Konten Ads","Hook 3 detik (pancing rasa penasaran) → Pain audiens → Solusi (produk sbg jawaban) → Bukti/benefit → CTA tegas"],
+  ["Affiliate","Hook jujur ('aku coba sendiri') → Pengalaman pakai (plus & minus) → Untuk siapa cocok/tidak → CTA afiliasi"],
+  ["Organik","Hook relatable → Value/cerita yang berguna → Ajak interaksi (pertanyaan ke audiens) → CTA lembut"],
+  ["Soft Selling","Hook relatable → Edukasi/cerita bernilai DULU → produk diselipkan halus di akhir → CTA lembut"],
+  ["Hard Selling","Hook berani → Tawaran + benefit utama → Urgency/scarcity → CTA tegas (beli sekarang)"],
+  ["Edu","Hook (janji ilmu) → Poin 1 → Poin 2 → Poin 3 → Ringkasan singkat → CTA (follow/simpan)"],
+  ["Trend","Buka dengan tren/sound viral yang sedang naik → Belokkan ke pesan/produk → Punchline → CTA cepat"],
+  ["Case Study","Hook (klaim hasil) → Kondisi/masalah awal → Proses & langkah yang dilakukan → Hasil terukur (angka/bukti nyata) → CTA"],
+  ["Behind","Hook (intip 'dapur') → Tunjukkan proses jujur langkah demi langkah → Nilai/effort di balik brand → CTA"],
+  ["Product Launch","Teaser/rasa penasaran → Reveal produk → 1-2 benefit unggulan → Penawaran perdana → CTA"],
+  ["Webinar","Hook masalah besar → Janji transformasi di acara → Bukti/kredibilitas pemateri → CTA daftar"]
+];
+const FW=[
+  ["AIDCA","Attention (hook) → Interest (bikin relevan) → Desire (bayangkan hasil) → Conviction (bukti) → Action (CTA)"],
+  ["PAS","Problem (angkat masalah) → Agitate (perparah/cubit) → Solution (jalan keluar)"],
+  ["BAB","Before (kondisi sekarang) → After (kondisi impian) → Bridge (produk sbg jembatan)"],
+  ["4P","Promise → Picture (gambaran hasil) → Proof (bukti) → Push (dorongan beli)"],
+  ["SLAP","Stop (hentikan scroll) → Look (buat lihat) → Act (ajak bertindak) → Purchase"],
+  ["StoryBrand","Hero=audiens → Problem → Guide=brand → Plan → Action → tunjukkan risiko gagal → raih sukses"],
+  ["ABT","And (situasi normal) → But (konflik/masalah) → Therefore (solusi)"],
+  ["Hero","Masalah → Perjuangan → Titik balik → Perubahan/hasil"],
+  ["HSO","Hook → Story (cerita relatable) → Offer (tawaran)"],
+  ["QUEST","Qualify → Understand → Educate → Stimulate → Transition (CTA)"],
+  ["FAB","Feature → Advantage → Benefit (terjemahkan fitur jadi manfaat emosional)"],
+  ["PASTOR","Problem → Amplify → Story/Solution → Transformation → Offer → Response"],
+  ["Problem–Promise–Proof","Problem → Promise (janji) → Proof (bukti)"],
+  ["3 Reason Why","Sebut 3 alasan kuat & berbeda kenapa harus (produk ini / sekarang)"]
+];
+function structFor(jenis){ return ruleFor(STRUKTUR,jenis) || "Hook (3 detik pertama) → Body → CTA"; }
+function fwFlow(fw){ const m=ruleFor(FW,fw); return m? (fw+' → '+m) : (fw||'framework yang cocok'); }
+/* Struktur konten edukasi/kreator berbasis GAYA CERITA */
+const GAYA=[
+  ["Storytelling pribadi","Adegan pembuka (langsung di tengah cerita) → kronologi → titik balik/insight → pelajaran → CTA lembut"],
+  ["Pelajaran dari kegagalan","Hook (akui kegagalan) → ceritakan gagalnya → apa yang dipelajari → cara memperbaiki → CTA"],
+  ["Mitos vs Fakta","Hook (sebut mitos populer) → bongkar kenapa salah → fakta sebenarnya + bukti → CTA"],
+  ["Tutorial","Hook (janji hasil) → Langkah 1 → 2 → 3 (runut & jelas) → tips bonus → CTA"],
+  ["Listicle","Hook (sebut jumlah) → Poin 1 → 2 → 3 (tiap poin tajam) → penutup → CTA"],
+  ["Hot-take","Hook (opini berani) → alasan/argumen → bukti/contoh → ajak diskusi"],
+  ["Studi kasus","Hook (hasil/angka) → konteks → proses → hasil → pelajaran yang bisa ditiru → CTA"],
+  ["Analogi","Hook (analogi tak terduga) → jelaskan konsep lewat analogi → tarik ke topik nyata → CTA"],
+  ["Q&A","Hook (pertanyaan yang sering muncul) → jawaban jelas → contoh konkret → CTA"]
+];
+function gayaStruct(g){ return ruleFor(GAYA,g) || "Hook (3 detik) → Isi bertahap → Penutup + CTA lembut"; }
+const $=id=>document.getElementById(id);
+let current='script', lastPrompt='';
+
+/* ===== FRESHNESS ENGINE + ANTI-REPEAT MEMORY ===== */
+const FRESH={
+  angles:["Kontrarian (tantang asumsi umum)","Storytelling personal (cerita nyata)","Data & angka mengejutkan","Myth-busting (bongkar mitos)","Analogi tak terduga","POV orang pertama","Listicle tajam","Problem–agitate (cubit pain point)","Hot-take / opini berani","Behind-the-scenes (proses jujur)","Studi kasus mini","Pertanyaan retoris nyeleneh"],
+  opening:["langsung ke konflik/masalah","buka dengan klaim berani","buka dengan pertanyaan menohok","buka dengan angka spesifik","buka dengan konfesi/pengakuan jujur","buka dengan adegan visual"],
+  constraint:["pakai 1 metafora segar","sisipkan 1 detail spesifik yang relatable","mulai dengan kata kerja (bukan basa-basi)","buat minimal 1 kalimat yang 'quotable'","gunakan kontras tajam (before vs after)","selipkan humor halus yang pas"]
+};
+const rand=a=>a[Math.floor(Math.random()*a.length)];
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const MEMKEY='scaler_fresh_v1'; let memCache=null;
+function loadMem(){ if(memCache)return memCache; try{memCache=JSON.parse(localStorage.getItem(MEMKEY))||{};}catch(e){memCache={};} return memCache; }
+function saveMem(m){ memCache=m; try{localStorage.setItem(MEMKEY,JSON.stringify(m));}catch(e){} }
+function pickFresh(tool){
+  const m=loadMem(); const used=m[tool]||[];
+  const avail=FRESH.angles.filter(a=>!used.includes(a));
+  const pool=avail.length?avail:FRESH.angles;
+  const primary=rand(pool);
+  const angleList=shuffle(FRESH.angles).slice(0,6);
+  m[tool]=[primary,...used].slice(0,5); saveMem(m);
+  return {primary,angleList,opening:rand(FRESH.opening),constraint:rand(FRESH.constraint),avoid:used.slice(0,4)};
+}
+function trendBlock(){
+  return "\n\n— TREN TERKINI (hanya jika kamu punya akses web/search) —\n"+
+    "- Cari tren, berita, sound/format viral, atau perbincangan terkini yang relevan dengan topik ini, lalu kaitkan secara natural.\n"+
+    "- PENTING: kalau kamu TIDAK punya akses search, abaikan bagian ini dan tetap buat konten kuat — JANGAN mengarang fakta/berita terkini.\n";
+}
+function freshnessBlock(tool){
+  const f=pickFresh(tool);
+  let b="\n\n— ATURAN KESEGARAN (ikuti diam-diam, JANGAN tampilkan aturan ini di output) —\n";
+  b+=`- Sudut pandang utama kali ini: ${f.primary}.\n`;
+  b+=`- Jika output lebih dari satu item, variasikan tiap item dengan angle BERBEDA dari: ${f.angleList.join(', ')}.\n`;
+  b+=`- Gaya pembuka: ${f.opening}. Tantangan kreatif: ${f.constraint}.\n`;
+  if(f.avoid.length) b+=`- JANGAN ulangi sudut yang sudah dipakai sebelumnya: ${f.avoid.join(', ')}.\n`;
+  b+=`- DILARANG pembuka klise: "Di era digital ini", "Tahukah kamu", "Siapa sih yang nggak mau", "Pernah nggak sih". Cari pembuka tak terduga.\n`;
+  b+=`- Tulis natural seperti orang Indonesia ngobrol; hindari bahasa kaku/translationese.\n`;
+  return b;
+}
+
+// build sidebar (dikelompokkan per tujuan)
+const GROUPS=[
+  {label:'For Sellers / KOL / Affiliator', ids:['script','winning','caption']},
+  {label:'For Content Creator', ids:['creator','carousel']},
+  {label:'For Searching Idea', ids:['idea','hook']}
+];
+const nav=$('nav');
+GROUPS.forEach((grp,gi)=>{
+  const lab=document.createElement('div'); lab.className='navlabel'; if(gi>0)lab.style.marginTop='14px'; lab.textContent=grp.label;
+  nav.appendChild(lab);
+  grp.ids.forEach(id=>{
+    const g=GEN[id]; if(!g) return;
+    const b=document.createElement('button');
+    b.className='navbtn'+(id===current?' active':'');
+    b.dataset.id=id;
+    b.innerHTML=`<span class="ic">${g.icon}</span> ${g.name}`;
+    b.onclick=()=>selectTool(id);
+    nav.appendChild(b);
+  });
+});
+const navlab1=document.createElement('div'); navlab1.className='navlabel'; navlab1.style.marginTop='12px'; navlab1.textContent='Pengaturan';
+nav.appendChild(navlab1);
+const brandBtn=document.createElement('button'); brandBtn.className='navbtn'; brandBtn.dataset.id='brand';
+brandBtn.innerHTML='<span class="ic">🏷️</span> Brand Profile'; brandBtn.onclick=()=>selectTool('brand');
+nav.appendChild(brandBtn);
+const histBtn=document.createElement('button'); histBtn.className='navbtn'; histBtn.dataset.id='history';
+histBtn.innerHTML='<span class="ic">🕘</span> Riwayat'; histBtn.onclick=()=>selectTool('history');
+nav.appendChild(histBtn);
+const navlab2=document.createElement('div'); navlab2.className='navlabel'; navlab2.style.marginTop='12px'; navlab2.textContent='Bantuan';
+nav.appendChild(navlab2);
+const guideBtn=document.createElement('button'); guideBtn.className='navbtn'; guideBtn.dataset.id='guide';
+guideBtn.innerHTML='<span class="ic">📖</span> Panduan'; guideBtn.onclick=()=>selectTool('guide');
+nav.appendChild(guideBtn);
+
+function selectTool(id){
+  if(id==='guide') return showGuide();
+  if(id==='brand') return showBrandProfile();
+  if(id==='history') return showHistory();
+  current=id; lastPrompt='';
+  document.querySelector('.wrap').classList.remove('guide');
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.id===id));
+  $('toolTitle').innerHTML=GEN[id].name.replace(/(\w+)$/,'<b>$1</b>');
+  renderForm(id);
+  $('output').textContent='// Isi form, lalu klik "Generate Prompt"...';
+  document.querySelectorAll('.ai').forEach(b=>b.disabled=true);
+  if($('refineBox')) $('refineBox').style.display='none';
+  basePrompt=''; refinements=[];
+  closeSidebar();
+  window.scrollTo({top:0});
+}
+
+const GUIDE_HTML=`
+<div class="card guide-card">
+  <h3><span class="gicon">👋</span> Selamat datang di The Scalers Content Studio</h3>
+  <p>Tool ini membantumu menyusun <b>prompt matang</b> untuk bikin script, ide konten, hook, caption, carousel, sampai iterasi iklan — lalu menjalankannya di ChatGPT, Claude, atau Gemini. Kamu tinggal pilih, isi, generate, lalu COPY/klik. Tidak perlu pintar nulis prompt; tool yang menyusunkannya.</p>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">①</span> 3 Langkah Pakai</h3>
+  <ol>
+    <li><b>Pilih generator</b> di menu kiri (sudah dikelompokkan: <b>For Sellers/KOL/Affiliator</b>, <b>For Content Creator</b>, <b>For Searching Idea</b>) — pilih sesuai kebutuhanmu.</li>
+    <li><b>Isi kolom</b> yang bertanda <b style="color:#ff7a87">*</b>. Tidak ada di pilihan? Pilih <b>"✏️ Buat sendiri…"</b> untuk ketik versimu. (Banyak kolom sudah terisi default — pemula tinggal isi yang penting saja.)</li>
+    <li><b>Klik "✨ Generate Prompt"</b>. Lalu klik <b>COPY</b>, atau langsung tombol <b>ChatGPT / Claude / Gemini</b> untuk membuka AI dengan prompt sudah terisi.</li>
+  </ol>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">②</span> 7 Generator & Fungsinya</h3>
+  <p><b>Untuk jualan (Sellers / KOL / Affiliator):</b></p>
+  <ul>
+    <li><b>📝 Content Script Generator</b> — script video/ads jualan (Hook → Body → CTA), beberapa variasi.</li>
+    <li><b>🏆 Winning Ads Iterator</b> — tempel iklan yang sudah menang, app bikin banyak iterasi tanpa merusak DNA pemenangnya.</li>
+    <li><b>✍️ Caption Generator</b> — caption siap posting + set hashtag.</li>
+  </ul>
+  <p><b>Untuk kreator (organik, tanpa jualan):</b></p>
+  <ul>
+    <li><b>🎬 Content Creator Script Generator</b> — script edukasi/storytelling murni value (cocok yang baru mau jadi kreator & belum punya produk).</li>
+    <li><b>🖼️ Carousel Generator</b> — script per slide + catatan visual desain.</li>
+  </ul>
+  <p><b>Untuk cari ide / mulai:</b></p>
+  <ul>
+    <li><b>💡 Content Idea Generator</b> — banyak ide konten dari satu tema, disajikan tabel.</li>
+    <li><b>⚡ Hook Generator</b> — kumpulan hook pembuka 3 detik yang bikin berhenti scroll.</li>
+  </ul>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">🎲</span> Freshness Engine</h3>
+  <p>Bikin hasilmu <b>tidak makin mirip-mirip / itu-itu aja</b> walau dipakai berkali-kali. Saat nyala, tiap Generate dipaksa pakai <b>sudut pandang berbeda</b> & <b>menghindari angle yang sudah pernah keluar</b> (lewat Anti-Repeat Memory).</p>
+  <ul>
+    <li><b>↺ Reset memori</b> = mengosongkan ingatan angle, jadi semua dianggap segar lagi. Pakai saat ganti produk/topik baru.</li>
+    <li>Matikan kalau justru ingin hasil yang <b>konsisten/stabil</b>.</li>
+  </ul>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">🔥</span> Pakai Tren Terkini</h3>
+  <p>Toggle di atas tombol Generate. Kalau dinyalakan, prompt akan menyuruh AI <b>mencari & memanfaatkan tren/berita/sound viral terkini</b> yang relevan dengan topikmu — biar kontenmu nyambung sama yang lagi rame. <i>(Di Content Idea Generator, ini otomatis menyala.)</i></p>
+  <ul>
+    <li>Butuh AI yang punya <b>web search aktif</b> (ChatGPT Search, Claude/Gemini dengan search nyala).</li>
+    <li>Kalau AI tidak punya search, dia disuruh <b>mengabaikan dan tidak mengarang</b> — jadi aman dari info palsu.</li>
+  </ul>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">⚙️</span> Brand Profile, Riwayat & Refine</h3>
+  <ul>
+    <li><b>🏷️ Brand Profile</b> (menu Pengaturan) — isi sekali (brand, produk, target, tone). Otomatis mengisi kolom yang cocok di semua generator, jadi tak perlu ngetik ulang tiap kali.</li>
+    <li><b>🕘 Riwayat</b> — semua prompt yang pernah kamu buat tersimpan. Bisa dibuka lagi, COPY, kirim ke AI, atau "Muat ke form" untuk diedit.</li>
+    <li><b>✨ Refine</b> (muncul setelah Generate) — sempurnakan prompt tanpa isi ulang: klik chip cepat (Lebih pendek, Lebih agresif, Ganti angle, dll) atau ketik instruksi sendiri.</li>
+  </ul>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">💡</span> Tips Hasil Terbaik</h3>
+  <ul>
+    <li>Isi <b>Pain</b> & <b>Benefit</b> (untuk jualan) atau <b>Topik</b> (untuk kreator) sespesifik mungkin — hindari kata umum.</li>
+    <li>Pilih <b>Platform</b> yang tepat; prompt menyesuaikan gaya tiap platform (TikTok ≠ LinkedIn ≠ Carousel).</li>
+    <li>Hasil kurang sreg? Klik <b>Generate</b> lagi — Freshness Engine kasih angle baru — atau pakai <b>Refine</b>.</li>
+  </ul>
+</div>
+
+<div class="card guide-card">
+  <h3><span class="gicon">❓</span> FAQ Singkat</h3>
+  <ul>
+    <li><b>Apa AI-nya gratis?</b> Prompt dirakit di sini gratis. AI-nya (ChatGPT/Claude/Gemini) pakai akunmu sendiri.</li>
+    <li><b>Prompt tidak otomatis terisi di AI?</b> Tergantung kebijakan tiap AI. Kalau kosong, klik <b>COPY</b> lalu paste manual.</li>
+    <li><b>Data tersimpan ke mana?</b> Brand Profile & Riwayat tersimpan di browser-mu sendiri.</li>
+  </ul>
+</div>`;
+
+function showGuide(){
+  current='guide'; lastPrompt='';
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.id==='guide'));
+  $('toolTitle').innerHTML='Panduan <b>Pakai</b>';
+  document.querySelector('.wrap').classList.add('guide');
+  $('formcol').innerHTML=GUIDE_HTML;
+  closeSidebar();
+  window.scrollTo({top:0});
+}
+
+/* ===== BRAND PROFILE ===== */
+const BRANDKEY='scaler_brand';
+function loadBrand(){ try{return JSON.parse(localStorage.getItem(BRANDKEY))||{};}catch(e){return {};} }
+function saveBrand(o){ try{localStorage.setItem(BRANDKEY,JSON.stringify(o));}catch(e){} }
+function presetField(wrap,value){
+  if(value==null||value==='') return;
+  if(Array.isArray(value)){ wrap.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=value.includes(c.value)); return; }
+  const sel=wrap.querySelector('select');
+  if(sel){
+    const match=[...sel.options].find(o=>o.value===value);
+    if(match){ sel.value=value; }
+    else { sel.value=CUSTOM; const c=wrap.querySelector('.custom'); if(c){c.style.display='block'; c.value=value;} }
+    sel.dispatchEvent(new Event('change'));
+    return;
+  }
+  const t=wrap.querySelector('input.ctrl,textarea.ctrl');
+  if(t){ t.value=value; t.dispatchEvent(new Event('input')); }
+}
+const PROFILE_FIELDS=[
+  {n:1,t:"Identitas Brand",f:[
+    {k:"brandName",label:"Nama Brand",type:"text",ph:"Contoh: GlowLab",req:false,full:true},
+    {k:"prodName",label:"Produk Utama",type:"text",ph:"Contoh: Serum Glowing A",req:false,full:true},
+    {k:"prodType",label:"Jenis Produk",opt:"JENIS_PRODUK",req:false},
+    {k:"niche",label:"Compliance / Niche",opt:"NICHE",req:false}]},
+  {n:2,t:"Audience & Pesan",f:[
+    {k:"target",label:"Target Market",opt:"TARGET",req:false},
+    {k:"pain",label:"Masalah Utama Audience (Pain)",type:"text",ph:"Contoh: Wajah kusam",req:false,full:true},
+    {k:"benefit",label:"Solusi / Benefit Utama",type:"text",ph:"Contoh: Glowing 7 hari",req:false,full:true},
+    {k:"usp",label:"USP / Kenapa beli di sini",type:"text",ph:"Contoh: BPOM, garansi 30 hari",req:false,full:true}]},
+  {n:3,t:"Preferensi Default",f:[
+    {k:"platform",label:"Platform Utama",opt:"PLATFORM",req:false},
+    {k:"tone",label:"Tone Default",opt:"TONE",req:false},
+    {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",req:false}]}
+];
+function showBrandProfile(){
+  current='brand'; lastPrompt='';
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.id==='brand'));
+  $('toolTitle').innerHTML='Brand <b>Profile</b>';
+  document.querySelector('.wrap').classList.add('guide');
+  const col=$('formcol'); col.innerHTML='';
+  const intro=document.createElement('div'); intro.className='card guide-card';
+  intro.innerHTML='<h3><span class="gicon">🏷️</span> Brand Profile</h3><p>Isi sekali di sini. Setiap kali kamu buka generator, kolom yang cocok akan <b>terisi otomatis</b> dari profil ini — tak perlu ngetik ulang. Semua opsional & tetap bisa kamu ubah per-generate.</p>';
+  col.appendChild(intro);
+  const saved=loadBrand();
+  PROFILE_FIELDS.forEach(sec=>{
+    const card=document.createElement('div'); card.className='card sec';
+    const h=document.createElement('h3'); h.innerHTML=`<span class="num">${sec.n}</span> ${sec.t}`; card.appendChild(h);
+    const grid=document.createElement('div'); grid.className='grid';
+    sec.f.forEach(f=>{ const w=buildField(f); grid.appendChild(w); presetField(w,saved[f.k]); });
+    card.appendChild(grid); col.appendChild(card);
+  });
+  const ac=document.createElement('div'); ac.className='card';
+  ac.innerHTML='<div class="actions"><button class="btn primary" id="saveBrand">💾 Simpan Brand Profile</button><button class="btn ghost" id="clearBrand">Hapus</button></div><p class="hint" id="brandMsg" style="margin-top:10px"></p>';
+  col.appendChild(ac);
+  $('saveBrand').onclick=()=>{
+    const o={}; col.querySelectorAll('.field[data-k]').forEach(w=>{ const v=fieldValue(w); if(v&&!Array.isArray(v)) o[w.dataset.k]=v; });
+    saveBrand(o); const m=$('brandMsg'); m.textContent='✓ Tersimpan. Akan terisi otomatis di semua generator.'; m.style.color='var(--ok)';
+  };
+  $('clearBrand').onclick=()=>{ saveBrand({}); showBrandProfile(); };
+  closeSidebar(); window.scrollTo({top:0});
+}
+
+/* ===== RIWAYAT PROMPT (HISTORY) ===== */
+const HISTKEY='scaler_history';
+function loadHistory(){ try{return JSON.parse(localStorage.getItem(HISTKEY))||[];}catch(e){return [];} }
+function saveHistory(a){ try{localStorage.setItem(HISTKEY,JSON.stringify(a));}catch(e){} }
+function removeHistory(id){ saveHistory(loadHistory().filter(x=>x.id!==id)); }
+function pushHistory(tool,state,prompt){
+  const label=state.prodName||state.brandName||state.topik||state.tema||(state.winScript?state.winScript.slice(0,40)+'…':'')||'(tanpa judul)';
+  const a=loadHistory();
+  a.unshift({id:Date.now()+'-'+Math.random().toString(36).slice(2,6),tool,label:String(label).slice(0,60),state,prompt,ts:Date.now()});
+  saveHistory(a.slice(0,50));
+}
+function restoreToForm(e){
+  selectTool(e.tool);
+  const col=$('formcol');
+  Object.entries(e.state||{}).forEach(([k,v])=>{
+    const w=[...col.querySelectorAll('.field[data-k]')].find(x=>x.dataset.k===k);
+    if(w) presetField(w,v);
+  });
+  window.scrollTo({top:0});
+}
+function historyCard(e){
+  const g=GEN[e.tool]||{name:e.tool,icon:'📝'};
+  const card=document.createElement('div'); card.className='card';
+  const meta=document.createElement('div'); meta.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap';
+  meta.innerHTML=`<div style="font-size:13px"><b>${g.icon} ${g.name}</b> — <span style="color:var(--muted)">${e.label}</span></div><div style="font-size:11px;color:var(--muted)">${new Date(e.ts).toLocaleString('id-ID')}</div>`;
+  card.appendChild(meta);
+  const pre=document.createElement('pre'); pre.className='output'; pre.style.cssText='min-height:0;max-height:150px'; pre.textContent=e.prompt; card.appendChild(pre);
+  const row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:10px';
+  const mk=(t,fn)=>{const b=document.createElement('button'); b.className='copybtn'; b.textContent=t; b.onclick=fn; return b;};
+  row.appendChild(mk('COPY',async()=>{ try{await navigator.clipboard.writeText(e.prompt);}catch(_){} }));
+  row.appendChild(mk('ChatGPT',()=>window.open(AI_URL.gpt(e.prompt),'_blank')));
+  row.appendChild(mk('Claude',()=>window.open(AI_URL.claude(e.prompt),'_blank')));
+  row.appendChild(mk('Gemini',()=>window.open(AI_URL.gemini(e.prompt),'_blank')));
+  row.appendChild(mk('✏️ Muat ke form',()=>restoreToForm(e)));
+  row.appendChild(mk('🗑️ Hapus',()=>{ removeHistory(e.id); showHistory(); }));
+  card.appendChild(row);
+  return card;
+}
+function showHistory(){
+  current='history'; lastPrompt='';
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.id==='history'));
+  $('toolTitle').innerHTML='Riwayat <b>Prompt</b>';
+  document.querySelector('.wrap').classList.add('guide');
+  const col=$('formcol'); col.innerHTML='';
+  const hist=loadHistory();
+  const intro=document.createElement('div'); intro.className='card guide-card';
+  intro.innerHTML='<h3><span class="gicon">🕘</span> Riwayat Prompt</h3><p>Semua prompt yang pernah kamu generate tersimpan di sini (di browser). Buka lagi, copy, kirim ke AI, atau muat balik ke form untuk diedit — tanpa isi ulang.</p>'+(hist.length?'<div style="margin-top:10px"><button class="copybtn" id="clearHist">🗑️ Hapus semua riwayat</button></div>':'');
+  col.appendChild(intro);
+  if(!hist.length){
+    const em=document.createElement('div'); em.className='card'; em.innerHTML='<p class="hint" style="margin:0">Belum ada riwayat. Generate prompt dulu, nanti otomatis tersimpan di sini.</p>'; col.appendChild(em);
+  }
+  hist.forEach(e=>col.appendChild(historyCard(e)));
+  if(hist.length){ const cb=$('clearHist'); let armed=false; cb.onclick=()=>{ if(!armed){armed=true; cb.textContent='⚠️ Klik lagi untuk hapus semua'; setTimeout(()=>{armed=false; cb.textContent='🗑️ Hapus semua riwayat';},2500);} else { saveHistory([]); showHistory(); } }; }
+  closeSidebar(); window.scrollTo({top:0});
+}
+
+function renderForm(id){
+  const col=$('formcol'); col.innerHTML='';
+  GEN[id].sections.forEach(sec=>{
+    const card=document.createElement('div'); card.className='card sec';
+    const h=document.createElement('h3'); h.innerHTML=`<span class="num">${sec.n}</span> ${sec.t}`;
+    card.appendChild(h);
+    const grid=document.createElement('div'); grid.className='grid';
+    sec.f.forEach(f=>grid.appendChild(buildField(f)));
+    card.appendChild(grid); col.appendChild(card);
+  });
+  // auto-fill dari Brand Profile
+  const bp=loadBrand(); let filled=0;
+  col.querySelectorAll('.field[data-k]').forEach(w=>{ if(bp[w.dataset.k]){ presetField(w,bp[w.dataset.k]); filled++; } });
+  if(filled){
+    const note=document.createElement('div'); note.className='card'; note.style.cssText='border-color:#2c6e57;background:rgba(46,204,143,.06)';
+    note.innerHTML=`<div style="font-size:12.5px;color:#7fe3bd">🏷️ ${filled} kolom terisi otomatis dari <b>Brand Profile</b>. Bisa kamu ubah lagi sebelum generate.</div>`;
+    col.insertBefore(note,col.firstChild);
+  }
+  // actions card
+  const optCard=document.createElement('div'); optCard.className='card';
+  optCard.innerHTML=`
+    <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Opsi Generate</div>
+    <div class="optrow">
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <label class="chip" title="Tiap generate dibuat beda angle + hindari pengulangan"><input type="checkbox" id="freshMode" checked> 🎲 Freshness Engine</label>
+        <label class="chip" title="Suruh AI cari & pakai tren terkini (butuh AI yang punya web search aktif)"><input type="checkbox" id="trendMode"> 🔥 Pakai tren terkini</label>
+      </div>
+      <button class="copybtn" id="resetMem" title="Lupakan variasi yang sudah dipakai">↺ Reset memori</button>
+    </div>
+    <p class="hint" style="margin-top:10px"><b>🎲 Freshness Engine</b>: hasil selalu beda angle, tidak monoton.<br><b>🔥 Tren terkini</b>: ikut tren yang lagi rame (butuh AI dengan web search).</p>`;
+  col.appendChild(optCard);
+  const ac=document.createElement('div'); ac.className='card';
+  ac.innerHTML=`<div class="actions"><button class="btn primary" id="gen">✨ Generate Prompt</button><button class="btn ghost" id="rst">Reset</button></div>`;
+  col.appendChild(ac);
+  if(id==='idea') $('trendMode').checked=true; // Content Idea: tren terkini auto-ON
+  $('gen').onclick=onGenerate; $('rst').onclick=()=>selectTool(current);
+  $('resetMem').onclick=()=>{ saveMem({}); const b=$('resetMem'); b.textContent='✓ Direset'; setTimeout(()=>{ if($('resetMem'))$('resetMem').textContent='↺ Reset memori'; },1500); };
+}
+
+function buildField(f){
+  const req = f.req!==false;
+  const wrap=document.createElement('div');
+  wrap.className='field'+((f.full||f.type==='textarea'||f.type==='checks')?' full':'');
+  wrap.dataset.k=f.k; wrap.dataset.req=req;
+  const lab=document.createElement('label');
+  lab.innerHTML=f.label+(req?' <span class="req">*</span>':' <span style="opacity:.6">(opsional)</span>');
+  wrap.appendChild(lab);
+
+  if(f.type==='text'||f.type==='textarea'){
+    const el=document.createElement(f.type==='textarea'?'textarea':'input');
+    el.placeholder=f.ph||''; el.className='ctrl';
+    el.addEventListener('input',()=>el.classList.remove('err'));
+    if(f.type==='textarea'){
+      el.rows=1;
+      const grow=()=>{ el.style.height='auto'; el.style.height=Math.max(el.scrollHeight,44)+'px'; };
+      el.addEventListener('input',grow);
+      setTimeout(grow,0);
+    }
+    wrap.appendChild(el);
+  } else if(f.type==='checks'){
+    const box=document.createElement('div'); box.className='chips';
+    (f.items||[]).forEach((it,i)=>{
+      const lbl=document.createElement('label'); lbl.className='chip';
+      lbl.innerHTML=`<input type="checkbox" ${i===0?'checked':''} value="${it}"> ${it}`;
+      box.appendChild(lbl);
+    });
+    wrap.appendChild(box);
+  } else {
+    const sel=document.createElement('select'); sel.className='ctrl';
+    const allowCustom=f.custom!==false;
+    sel.innerHTML='<option value="">-- Pilih --</option>'
+      +(O[f.opt]||[]).map(o=>`<option>${o}</option>`).join('')
+      +(allowCustom?`<option value="${CUSTOM}">✏️ Buat sendiri…</option>`:'');
+    const cust=document.createElement('input'); cust.type='text'; cust.className='custom';
+    cust.placeholder='Ketik versimu…'; cust.style.cssText='display:none;margin-top:6px';
+    cust.addEventListener('input',()=>cust.classList.remove('err'));
+    sel.addEventListener('change',()=>{
+      cust.style.display=(sel.value===CUSTOM)?'block':'none';
+      if(sel.value===CUSTOM)cust.focus();
+      sel.classList.remove('err'); cust.classList.remove('err');
+    });
+    wrap.appendChild(sel); wrap.appendChild(cust);
+    if(f.def!=null){ sel.selectedIndex=f.def+1; }
+  }
+  return wrap;
+}
+
+function fieldValue(wrap){
+  const sel=wrap.querySelector('select');
+  if(sel){ const c=wrap.querySelector('.custom');
+    return sel.value===CUSTOM ? (c.value||'').trim() : sel.value; }
+  const ta=wrap.querySelector('input.ctrl, textarea.ctrl');
+  if(ta) return (ta.value||'').trim();
+  const checks=wrap.querySelectorAll('input[type=checkbox]:checked');
+  if(checks.length||wrap.querySelector('.chips')) return [...checks].map(c=>c.value);
+  return '';
+}
+
+function onGenerate(){
+  const wraps=[...$('formcol').querySelectorAll('.field[data-k]')];
+  const s={}; const missing=[];
+  wraps.forEach(w=>{
+    const v=fieldValue(w); s[w.dataset.k]=v;
+    const req=w.dataset.req==='true';
+    const empty = Array.isArray(v)? false : !v;
+    const sel=w.querySelector('select'), cust=w.querySelector('.custom'), txt=w.querySelector('input.ctrl,textarea.ctrl');
+    if(req && empty){
+      missing.push(w.querySelector('label').textContent.replace('*','').trim());
+      if(sel){sel.classList.add('err'); if(sel.value===CUSTOM)cust.classList.add('err');}
+      if(txt)txt.classList.add('err');
+    } else { if(sel)sel.classList.remove('err'); if(cust)cust.classList.remove('err'); if(txt)txt.classList.remove('err'); }
+  });
+  if(missing.length){
+    alert('Lengkapi dulu '+missing.length+' kolom wajib:\n\n• '+missing.join('\n• '));
+    const fe=$('formcol').querySelector('.err'); if(fe&&fe.scrollIntoView)fe.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  lastPrompt=GEN[current].prompt(s);
+  lastPrompt+="\n\n— GAYA BAHASA (WAJIB) —\n- Pakai bahasa sehari-hari yang gampang dimengerti audiens awam.\n- HINDARI istilah ambigu, jargon, atau kata Inggris yang bikin bingung. Kalau terpaksa pakai istilah, jelaskan singkat dengan bahasa sederhana.";
+  const bp=loadBrand();
+  if(bp.brandName) lastPrompt+=`\n\nKonteks brand: konten ini untuk brand "${bp.brandName}". Jaga konsistensi nama & karakter brand.`;
+  if($('freshMode')&&$('freshMode').checked) lastPrompt+=freshnessBlock(current);
+  if($('trendMode')&&$('trendMode').checked) lastPrompt+=trendBlock();
+  runLoading(()=>{
+    $('output').textContent=lastPrompt;
+    basePrompt=lastPrompt; refinements=[]; $('refineBox').style.display='block';
+    document.querySelectorAll('.ai').forEach(b=>b.disabled=false);
+    pushHistory(current,s,lastPrompt);
+    const out=document.querySelector('.out');
+    out.classList.remove('flash'); void out.offsetWidth; out.classList.add('flash');
+    if(window.innerWidth<=980 && out.scrollIntoView) out.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
+let loadTimer=null,msgTimer=null;
+function runLoading(done,keepRefine){
+  const gen=$('gen'); if(gen)gen.disabled=true;
+  document.querySelectorAll('.ai').forEach(b=>b.disabled=true);
+  const rb=$('refineBox'); let rbtns=[];
+  if(rb){ if(keepRefine){ rbtns=[...rb.querySelectorAll('button')]; rbtns.forEach(b=>b.disabled=true); } else { rb.style.display='none'; } }
+  const msgs=keepRefine?['Menyesuaikan prompt…','✨ Menerapkan refine…','Hampir selesai…']:['Meracik prompt…','🎲 Memilih angle segar…','Menyetel gaya bahasa…','Hampir selesai…'];
+  let i=0;
+  $('output').innerHTML='<div class="loadwrap"><span class="spin"></span><span id="loadMsg">'+msgs[0]+'</span></div>';
+  clearInterval(msgTimer); msgTimer=setInterval(()=>{ i=(i+1)%msgs.length; const el=$('loadMsg'); if(el)el.textContent=msgs[i]; },280);
+  clearTimeout(loadTimer); loadTimer=setTimeout(()=>{ clearInterval(msgTimer); if(gen)gen.disabled=false; document.querySelectorAll('.ai').forEach(b=>b.disabled=false); rbtns.forEach(b=>b.disabled=false); done(); },keepRefine?700:950);
+}
+
+// output buttons
+$('copy').onclick=async()=>{
+  if(!lastPrompt)return;
+  try{await navigator.clipboard.writeText(lastPrompt);}catch(e){
+    const r=document.createRange();r.selectNode($('output'));getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy');getSelection().removeAllRanges();}
+  const b=$('copy');b.textContent='Tersalin!';b.classList.add('done','pop');
+  setTimeout(()=>b.classList.remove('pop'),460);
+  setTimeout(()=>{b.textContent='Copy Scaler Prompt';b.classList.remove('done');},1500);
+};
+// ⬇️ Setelah Custom GPT dibuat, tempel URL-nya di sini (mis. https://chatgpt.com/g/g-xxxxxxxx-scaler-copywriter). Kosongkan = pakai ChatGPT biasa.
+const GPT_CUSTOM_URL='https://chatgpt.com/g/g-6a34a17ab274819185ba4a652e7ba1aa-scaler-copywriter-script-ads';
+const AI_URL={
+  gpt:p=> GPT_CUSTOM_URL ? GPT_CUSTOM_URL.replace(/\/+$/,'')+'?prompt='+encodeURIComponent(p) : 'https://chatgpt.com/?q='+encodeURIComponent(p),
+  claude:p=>'https://claude.ai/new?q='+encodeURIComponent(p),
+  gemini:p=>'https://gemini.google.com/app?q='+encodeURIComponent(p)
+};
+document.querySelectorAll('.ai').forEach(b=>b.onclick=()=>{
+  if(!lastPrompt) return;
+  if(b.dataset.ai==='gpt' && GPT_CUSTOM_URL){
+    // Custom GPT tidak bisa di-prefill via link (kebijakan OpenAI) → salin prompt + buka GPT, tinggal paste
+    try{ navigator.clipboard.writeText(lastPrompt); }catch(e){}
+    window.open(GPT_CUSTOM_URL,'_blank');
+    b.dataset.label=b.dataset.label||b.innerHTML;
+    b.innerHTML='✓ Tersalin — paste (⌘V) di GPT';
+    setTimeout(()=>{ b.innerHTML=b.dataset.label; },2600);
+  } else {
+    window.open(AI_URL[b.dataset.ai](lastPrompt),'_blank');
+  }
+});
+
+/* ===== REFINE ===== */
+const REFINE=[
+  ["Lebih pendek","Buat versi yang lebih pendek & padat, buang bagian yang tidak penting."],
+  ["Lebih agresif","Buat lebih agresif/hard-selling dengan dorongan beli yang lebih kuat."],
+  ["Lebih santai","Buat lebih santai & casual, seperti ngobrol dengan teman."],
+  ["Tambah 1 variasi","Tambahkan 1 variasi lagi dengan angle yang berbeda."],
+  ["Ganti angle total","Ganti total sudut pandang/angle-nya, jangan mirip yang tadi."],
+  ["Fokus 1 benefit","Fokuskan hanya pada 1 benefit utama yang paling kuat."]
+];
+let basePrompt='', refinements=[];
+function renderRefined(){
+  lastPrompt = refinements.length ? basePrompt+"\n\n— PENYESUAIAN (REFINE) —\n"+refinements.map(r=>"- "+r).join("\n") : basePrompt;
+  $('output').textContent=lastPrompt;
+  const out=document.querySelector('.out'); out.classList.remove('flash'); void out.offsetWidth; out.classList.add('flash');
+}
+function addRefine(txt){ if(!basePrompt||!txt) return; refinements.push(txt); runLoading(()=>renderRefined(), true); }
+(function(){
+  const rc=$('refineChips');
+  REFINE.forEach(([label,instr])=>{ const b=document.createElement('button'); b.className='copybtn'; b.textContent=label; b.onclick=()=>addRefine(instr); rc.appendChild(b); });
+  $('refineAdd').onclick=()=>{ const v=$('refineInput').value.trim(); if(v){ addRefine(v); $('refineInput').value=''; } };
+  $('refineInput').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); $('refineAdd').click(); } });
+})();
+function closeSidebar(){ $('sidebar').classList.remove('open'); $('sbBackdrop').classList.remove('show'); }
+$('menutoggle').onclick=()=>{ const o=$('sidebar').classList.toggle('open'); $('sbBackdrop').classList.toggle('show',o); };
+$('sbBackdrop').onclick=closeSidebar;
+
+/* ===== AUTH (Supabase) — paywall ===== */
+// ⬇️ Setelah buat project Supabase, tempel Project URL & anon public key di sini. Kosongkan = app jalan TANPA login (mode dev).
+const SUPABASE_URL='https://kjdtawflhymxmnauvimb.supabase.co';
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtqZHRhd2ZsaHlteG1uYXV2aW1iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwNzE3MjIsImV4cCI6MjA5NjY0NzcyMn0.Brae15jQdjNms54V54F4iFjEKn3EqZaS30bclkmXv94';
+let sb=null;
+const authConfigured=()=>!!(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase);
+function authMsg(t,ok){ const m=$('authMsg'); if(m){ m.textContent=t||''; m.style.color=ok?'var(--ok)':'#ff7a87'; } }
+let loggingIn=false;
+function showAuthLogin(){ const as=$('authScreen'); as.style.display='flex'; as.style.opacity='1'; as.style.transition=''; as.classList.remove('entering'); const wm=$('welcomeMsg'); if(wm)wm.textContent='Menyiapkan studio…'; $('logoutBtn').style.display='none'; const b=$('authBtn'); if(b){ b.disabled=false; b.classList.remove('done'); b.textContent='Masuk'; } }
+function hideAuth(){ $('authScreen').style.display='none'; $('logoutBtn').style.display='flex'; }
+function enterApp(){
+  const as=$('authScreen'); as.classList.add('entering');
+  setTimeout(()=>{ as.style.transition='opacity .45s'; as.style.opacity='0';
+    setTimeout(()=>{ as.style.display='none'; as.style.opacity='1'; as.style.transition=''; as.classList.remove('entering');
+      const b=$('authBtn'); if(b){ b.textContent='Masuk'; b.classList.remove('done'); b.disabled=false; }
+      $('logoutBtn').style.display='flex';
+    },470);
+  },1200);
+}
+async function isPaid(uid){ try{ const {data,error}=await sb.from('profiles').select('is_paid').eq('id',uid).single(); if(error)return false; return !!(data&&data.is_paid); }catch(e){ return false; } }
+function gate(session){
+  if(!session){ showAuthLogin(); return; }
+  isPaid(session.user.id).then(paid=>{
+    if(paid){
+      authMsg('');
+      if(loggingIn){ loggingIn=false; const b=$('authBtn'); if(b){ b.innerHTML='✓ Berhasil!'; b.classList.add('done'); } setTimeout(enterApp,400); }
+      else { hideAuth(); }
+    } else {
+      loggingIn=false; authMsg('Akun belum aktif. Hubungi admin lewat WA / email.');
+      const b=$('authBtn'); if(b){ b.disabled=false; b.classList.remove('done'); b.textContent='Masuk'; }
+      sb.auth.signOut(); showAuthLogin();
+    }
+  });
+}
+async function initAuth(){
+  if(!authConfigured()){ return; } // mode dev: tanpa gerbang login
+  sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+  showAuthLogin();
+  $('authBtn').onclick=async()=>{
+    const email=$('authEmail').value.trim(), pass=$('authPass').value;
+    if(!email||!pass){ authMsg('Isi email & password dulu.'); return; }
+    const b=$('authBtn'); b.disabled=true; b.innerHTML='<span class="spin"></span> Masuk…'; authMsg('');
+    loggingIn=true;
+    const {error}=await sb.auth.signInWithPassword({email,password:pass});
+    if(error){ loggingIn=false; b.disabled=false; b.classList.remove('done'); b.textContent='Masuk'; authMsg('Email atau password salah.'); return; }
+    // sukses → gate() (via onAuthStateChange) yang akan menganimasikan masuk ke app
+  };
+  $('authPass').addEventListener('keydown',e=>{ if(e.key==='Enter') $('authBtn').click(); });
+  $('logoutBtn').onclick=async()=>{
+    const as=$('authScreen'); const wm=$('welcomeMsg'); if(wm)wm.textContent='Keluar…';
+    as.classList.add('entering'); as.style.display='flex'; as.style.opacity='0'; as.style.transition='opacity .3s';
+    requestAnimationFrame(()=>{ as.style.opacity='1'; });
+    await new Promise(r=>setTimeout(r,850));
+    await sb.auth.signOut();
+  };
+  const {data:{session}}=await sb.auth.getSession();
+  gate(session);
+  sb.auth.onAuthStateChange((_e,s)=>gate(s));
+}
+
+// init
+selectTool('script');
+initAuth();
+</script>
+</body>
+</html>
