@@ -201,6 +201,7 @@ const O = {
   VISUAL_STYLE:["Talking Head (wajah full)","POV (tangan pegang produk)","Green Screen (background info)","B-Roll / Product Focus","Lifestyle / Day in Life","Cinematic / Aesthetic (slowmo)","Split Screen (before/after)","ASMR (sound & texture)","Stop Motion","Animation (2D/3D)","Breaking News (ticker)"],
   FRAMEWORK:["AIDCA (Attention–Interest–Desire–Conviction–Action)","PAS (Problem–Agitate–Solution)","BAB (Before–After–Bridge)","4P (Promise–Picture–Proof–Push)","SLAP (Stop–Look–Act–Purchase)","StoryBrand (Hero–Problem–Guide–Plan–Action)","ABT (And–But–Therefore)","Hero's Journey","Hook–Story–Offer (HSO)","QUEST","FAB (Features–Advantages–Benefits)","PASTOR","Problem–Promise–Proof","The 3 Reason Why"],
   HOOK:["Pattern Interrupt (gerakan/suara aneh)","Negative Hook (curhat masalah)","Specific Number (3 alasan, 7 hari)","Question Based (pancing pertanyaan)","Story Hook (langsung cerita)","Statistik / Data (fakta mengejutkan)","Flashback / Nostalgia","Direct Question (yes/no)"],
+  ANGLE:["🎲 Auto (Freshness Engine pilih)","Pain / Keluhan","Transformasi (Before–After)","Takut Rugi / FOMO","Rahasia / Insider","Lawan Mitos","Bukti Sosial","Cerita Personal","Penasaran (Curiosity)","Aspirasi / Mimpi","Bandingin (vs Cara Lama)","Urgensi / Terbatas","Relatable (ini gue banget)"],
   AWARENESS:["Unaware (tidak tahu masalahnya)","Problem Aware (tau masalah, cari solusi)","Solution Aware (bandingin produk)","Most Aware (siap beli, butuh dorongan)"],
   PSYCHO:["Pain-Averse (takut rugi/salah pilih)","Status Seeker (ingin terlihat keren)","Skeptic (butuh bukti logis)","Impulse Buyer (gampang FOMO)","Value Seeker (cari hemat)","Eco-Conscious (peduli lingkungan)","Tech Savvy (early adopter)","Family Oriented (fokus keluarga)","Luxury / High-End"],
   TARGET:["Business Owner (UMKM / Brand)","Founder Startup (early stage)","Performance Marketer / Media Buyer","Digital Marketing Manager","Content Strategist","Seller Marketplace (Shopee/Tokopedia)","Reseller / Dropshipper","Distributor / Grosir","Brand Lokal / D2C","Content Creator / Affiliate","Influencer (Nano / Micro)","Coach / Mentor / Trainer","Educator / Course Creator","Sales Team / Leader","Franchise Owner","Owner Toko Offline","HR / People Ops","Mahasiswa / Fresh Graduate","Umum (general audience)"],
@@ -239,6 +240,7 @@ const GEN = {
         {k:"format",label:"Format & Durasi",opt:"FORMAT_DURASI"},
         {k:"visual",label:"Gaya Visual",opt:"VISUAL_STYLE",full:true}]},
       {n:3,t:"Strategi Copywriting",f:[
+        {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
         {k:"framework",label:"Framework Copy",opt:"FRAMEWORK"},
         {k:"hook",label:"Hook Pembuka",opt:"HOOK"}]},
       {n:4,t:"Target Audience",f:[
@@ -354,6 +356,7 @@ const GEN = {
         {k:"target",label:"Target Audiens",opt:"TARGET"},
         {k:"awareness",label:"Level Awareness",opt:"AWARENESS"}]},
       {n:2,t:"Masalah & Sudut Pandang",f:[
+        {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
         {k:"psycho",label:"Psikografis",opt:"PSYCHO"},
         {k:"tone",label:"Tone (Gaya Bahasa)",opt:"TONE"},
         {k:"pain",label:"Pain Point Utama (Masalah)",type:"textarea",ph:"Contoh: Gaji numpang lewat",full:true},
@@ -450,6 +453,7 @@ const GEN = {
         {k:"winPlatform",label:"Platform Asal",opt:"PLATFORM"},
         {k:"winElement",label:"Elemen yang bikin menang (opsional)",type:"textarea",ph:"mis. hook soal harga, pakai testimoni, demo produk",req:false,full:true}]},
       {n:2,t:"Strategi Iterasi",f:[
+        {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
         {k:"vary",label:"Variasikan (boleh diubah)",type:"checks",full:true,req:false,items:["Hook baru","Angle/sudut baru","Format lain (UGC/talking head/story)","Durasi beda (15s/30s/60s)","Persona/avatar beda","Awareness level beda (dingin vs hangat)","Tone/demografi beda"]},
         {k:"keep",label:"Pertahankan (dikunci, jangan diubah)",type:"checks",full:true,req:false,items:["Offer / penawaran","Call to action (CTA)","Struktur alur","Hook asli","Benefit utama","Bukti / proof / testimoni"]}]},
       {n:3,t:"Konteks Produk (auto dari Brand Profile)",f:[
@@ -490,6 +494,20 @@ function L2(label,v){return v? `* ${label}: ${v}\n` : '';}
 
 /* ===== RULE INJECTION: tiap pilihan -> instruksi taktis ===== */
 const R={
+  angle:[
+    ["Pain","Buka dari titik sakit paling spesifik audiens — gambarkan momen frustrasinya dengan detail nyata sebelum tawarkan jalan keluar."],
+    ["Transformasi","Kontraskan kondisi 'sebelum' (menyakitkan) vs 'sesudah' (lega) secara vivid; jual jarak perubahannya, bukan fiturnya."],
+    ["FOMO","Tekankan biaya diam & apa yang hilang kalau tidak bertindak sekarang; bikin status quo terasa mahal."],
+    ["Rahasia","Posisikan info sebagai bocoran yang jarang dibagikan; pancing rasa 'wah baru tahu' di awal."],
+    ["Mitos","Mulai dengan membantah satu anggapan umum yang dipercaya audiens, lalu bongkar kenapa keliru + apa yang benar."],
+    ["Bukti Sosial","Sandarkan klaim pada pengalaman banyak orang (jumlah, reaksi, hasil) biar audiens merasa aman ikut."],
+    ["Cerita Personal","Bingkai sebagai cerita orang pertama (momen titik balik); biarkan pelajaran muncul dari kisah, bukan digurui."],
+    ["Penasaran","Buka loop penasaran di kalimat pertama (pertanyaan/janji terselubung), baru tutup di akhir."],
+    ["Aspirasi","Lukis gambaran hasil/identitas ideal yang diidamkan; jual versi diri mereka yang lebih baik."],
+    ["Cara Lama","Adu cara lama yang ribet vs cara baru yang ringkas; menangkan lewat kontras, bukan klaim kosong."],
+    ["Urgensi","Beri alasan jujur untuk bertindak sekarang (momentum/kesempatan terbatas) tanpa terkesan maksa."],
+    ["Relatable","Cerminkan momen sehari-hari audiens akurat sampai mereka mikir 'ini gue banget' sebelum masuk pesan inti."]
+  ],
   awareness:[
     ["Unaware","Audiens belum sadar masalahnya — JANGAN langsung jualan/sebut produk. Buka dengan problem/cerita relatable dulu."],
     ["Problem Aware","Audiens sadar masalah & cari solusi — agitasi masalahnya dulu, lalu posisikan solusi sebagai jawaban."],
@@ -660,8 +678,14 @@ const R={
   ]
 };
 function ruleFor(map,val){ if(!val) return ''; for(const[k,instr] of map){ if(val.includes(k)) return instr; } return ''; }
+function angleRule(s){
+  const v=s.angle; if(!v) return '';
+  if(/Auto/i.test(v)) return '';
+  return ruleFor(R.angle,v) || ('Pakai ANGLE / sudut masuk: '+v+'. Bangun seluruh konten dari sudut ini.');
+}
 function tacticalBlock(s){
   const out=[]; const add=x=>{ if(x) out.push('* '+x); };
+  add(angleRule(s));
   add(ruleFor(R.target,s.target));
   add(ruleFor(R.avatar,s.avatar));
   add(ruleFor(R.tujuan,s.tujuan));
@@ -752,13 +776,16 @@ function trendBlock(){
     "- Cari tren, berita, sound/format viral, atau perbincangan terkini yang relevan dengan topik ini, lalu kaitkan secara natural.\n"+
     "- PENTING: kalau kamu TIDAK punya akses search, abaikan bagian ini dan tetap buat konten kuat — JANGAN mengarang fakta/berita terkini.\n";
 }
-function freshnessBlock(tool){
+function freshnessBlock(tool,s){
   const f=pickFresh(tool);
+  const lockedAngle = s && s.angle && !/Auto/i.test(s.angle);
   let b="\n\n— ATURAN KESEGARAN (ikuti diam-diam, JANGAN tampilkan aturan ini di output) —\n";
-  b+=`- Sudut pandang utama kali ini: ${f.primary}.\n`;
-  b+=`- Jika output lebih dari satu item, variasikan tiap item dengan angle BERBEDA dari: ${f.angleList.join(', ')}.\n`;
+  if(!lockedAngle){
+    b+=`- Sudut pandang utama kali ini: ${f.primary}.\n`;
+    b+=`- Jika output lebih dari satu item, variasikan tiap item dengan angle BERBEDA dari: ${f.angleList.join(', ')}.\n`;
+  }
   b+=`- Gaya pembuka: ${f.opening}. Tantangan kreatif: ${f.constraint}.\n`;
-  if(f.avoid.length) b+=`- JANGAN ulangi sudut yang sudah dipakai sebelumnya: ${f.avoid.join(', ')}.\n`;
+  if(!lockedAngle && f.avoid.length) b+=`- JANGAN ulangi sudut yang sudah dipakai sebelumnya: ${f.avoid.join(', ')}.\n`;
   b+=`- DILARANG pembuka klise: "Di era digital ini", "Tahukah kamu", "Siapa sih yang nggak mau", "Pernah nggak sih". Cari pembuka tak terduga.\n`;
   b+=`- Tulis natural seperti orang Indonesia ngobrol; hindari bahasa kaku/translationese.\n`;
   return b;
@@ -1144,7 +1171,7 @@ function onGenerate(){
   lastPrompt+="\n\n— GAYA BAHASA (WAJIB) —\n- Pakai bahasa sehari-hari yang gampang dimengerti audiens awam.\n- HINDARI istilah ambigu, jargon, atau kata Inggris yang bikin bingung. Kalau terpaksa pakai istilah, jelaskan singkat dengan bahasa sederhana.";
   const bp=loadBrand();
   if(bp.brandName) lastPrompt+=`\n\nKonteks brand: konten ini untuk brand "${bp.brandName}". Jaga konsistensi nama & karakter brand.`;
-  if($('freshMode')&&$('freshMode').checked) lastPrompt+=freshnessBlock(current);
+  if($('freshMode')&&$('freshMode').checked) lastPrompt+=freshnessBlock(current,s);
   if($('trendMode')&&$('trendMode').checked) lastPrompt+=trendBlock();
   runLoading(()=>{
     $('output').textContent=lastPrompt;
