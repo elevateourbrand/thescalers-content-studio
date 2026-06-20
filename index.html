@@ -211,6 +211,7 @@ const O = {
   NICHE:["General (aman bebas)","Beauty / Skincare (soft claim)","Health / Medical (klaim medis dilarang)","Financial / Investment (disclaimer wajib)","Food & Beverage (halal/sehat)"],
   JENIS_PRODUK:["Digital (Ebook / Template)","Digital (Mini Course / Video)","Digital (Membership / Komunitas)","Jasa (Agency / Freelance)","Jasa (Konsultasi 1:1)","Jasa (Done-For-You)","Fisik (Skincare / Fashion)","Fisik (Food & Beverage)","Fisik (Wellness / Kesehatan)","Fisik (Home & Living)","Fisik (Gadget / Aksesoris)","Fisik (Perhiasan / Meaningful Jewelry)","Fisik (Gift / Hadiah)","SaaS / Software","App / Mobile","Kursus / Coaching","Event / Webinar"],
   TONE:["Santai & Relatable","Edukatif & Profesional","Urgent & Direct (agresif)","Gen-Z / Anak Jaksel (gaul)","Witty & Humorous (lucu)","Empathetic (empati)","Minimalist (singkat padat)"],
+  POV:["Aku ke Kamu (ngomong ke penonton)","Fokus Kamu (sorot penonton)","Kita (inklusif)","Aku (cerita pribadi)","Netral / fokus topik","Orang ketiga (Dia/Mereka)"],
   CTA:["Klik link di bio","DM / Chat sekarang","Comment \"INFO\"","Follow & Save","Beli sekarang","Daftar sekarang","Start free trial","Download asset / e-book"],
   BAHASA:["Bahasa Indonesia","Bahasa Indonesia (casual/gaul)","English","Mix ID + English (Jaksel)"],
   FORMAT_IDE:["Bebas (campur)","Video Pendek / Reels","Carousel","Story","Single Image + Caption","Live / Webinar"],
@@ -255,6 +256,7 @@ const GEN = {
         {k:"prodName",label:"Nama Produk",type:"text",ph:"Contoh: Serum Glowing A",full:true},
         {k:"prodType",label:"Jenis Produk",opt:"JENIS_PRODUK"},
         {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"pain",label:"Masalah Audience (Pain)",type:"textarea",ph:"Contoh: Wajah kusam",full:true},
         {k:"benefit",label:"Solusi / Benefit Utama",type:"textarea",ph:"Contoh: Glowing 7 hari",full:true},
         {k:"usp",label:"USP / Kenapa beli di sini",type:"textarea",ph:"Contoh: BPOM, garansi 30 hari",full:true},
@@ -297,7 +299,8 @@ const GEN = {
         {k:"tujuan",label:"Tujuan Konten",opt:"TUJUAN_EDU",def:0},
         {k:"gaya",label:"Gaya Cerita",opt:"GAYA_CERITA",def:0},
         {k:"hook",label:"Tipe Hook",opt:"HOOK",def:4},
-        {k:"tone",label:"Tone",opt:"TONE",def:0}]},
+        {k:"tone",label:"Tone",opt:"TONE",def:0},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false}]},
       {n:3,t:"Output",f:[
         {k:"format",label:"Format & Durasi",opt:"FORMAT_DURASI",def:1},
         {k:"takeaway",label:"Satu Pesan Utama / Takeaway (opsional)",type:"text",ph:"Contoh: Mulai nabung dari nominal kecil lebih penting dari nunggu gaji besar",req:false,full:true},
@@ -362,6 +365,7 @@ const GEN = {
         {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
         {k:"psycho",label:"Psikografis",opt:"PSYCHO"},
         {k:"tone",label:"Tone (Gaya Bahasa)",opt:"TONE"},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"pain",label:"Pain Point Utama (Masalah)",type:"textarea",ph:"Contoh: Gaji numpang lewat",full:true},
         {k:"desire",label:"Desire Utama (Impian)",type:"textarea",ph:"Contoh: Punya tabungan tenang",full:true}]},
       {n:3,t:"Strategi & Output",f:[
@@ -394,6 +398,7 @@ const GEN = {
       {n:2,t:"Konten & Gaya",f:[
         {k:"topik",label:"Topik / Isi Konten Utama",type:"textarea",ph:"Jelaskan singkat isi/foto/video yang mau di-caption…",full:true},
         {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"framework",label:"Framework Copywriting",opt:"FRAMEWORK"}]},
       {n:3,t:"Output",f:[
         {k:"panjang",label:"Panjang Caption",opt:"PANJANG",def:1,custom:false},
@@ -427,6 +432,7 @@ const GEN = {
       {n:2,t:"Gaya Bercerita",f:[
         {k:"slide",label:"Jumlah Slide",opt:"JUMLAH_SLIDE",def:1,custom:false},
         {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"framework",label:"Framework Copywriting",opt:"FRAMEWORK"},
         {k:"avatar",label:"Avatar / Persona Bercerita",opt:"AVATAR"}]},
       {n:3,t:"Visual & Output",f:[
@@ -464,7 +470,8 @@ const GEN = {
         {k:"prodDesc",label:"Penjelasan Produk (isi kalau produknya beda / ganti dari iklan asli)",type:"textarea",ph:"Jelaskan produk yang mau diiterasikan: manfaat utama, target, penawaran/harga...",req:false,full:true},
         {k:"target",label:"Target Market",opt:"TARGET",req:false},
         {k:"niche",label:"Compliance / Niche",opt:"NICHE",req:false},
-        {k:"tone",label:"Tone",opt:"TONE",req:false}]},
+        {k:"tone",label:"Tone",opt:"TONE",req:false},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false}]},
       {n:4,t:"Output",f:[
         {k:"jumlah",label:"Jumlah Iterasi",opt:"JUMLAH_ITER",def:1,custom:false},
         {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
@@ -510,6 +517,14 @@ const R={
     ["Cara Lama","Adu cara lama yang ribet vs cara baru yang ringkas; menangkan lewat kontras, bukan klaim kosong."],
     ["Urgensi","Beri alasan jujur untuk bertindak sekarang (momentum/kesempatan terbatas) tanpa terkesan maksa."],
     ["Relatable","Cerminkan momen sehari-hari audiens akurat sampai mereka mikir 'ini gue banget' sebelum masuk pesan inti."]
+  ],
+  pov:[
+    ["Aku ke Kamu","Tulis dengan sudut bicara 'aku ke kamu': narator (kreator) ngomong langsung ke SATU penonton — pakai 'aku/gue' untuk diri sendiri & 'kamu' untuk penonton. Personal & ngobrol."],
+    ["Fokus Kamu","Sudut bicara fokus ke penonton ('kamu'): sorot pengalaman/perasaan penonton; narator hampir tak terlihat. Banyak 'kamu', minim 'aku'."],
+    ["Kita","Sudut bicara inklusif ('kita'): rangkul penonton seakan satu tim — 'kita sama-sama...'. Bangun kebersamaan."],
+    ["Aku (cerita","Sudut bicara orang pertama murni ('aku'): cerita pengalaman/pendapat diri sendiri; boleh tanpa banyak menyapa penonton."],
+    ["Netral","Tanpa kata ganti personal: gaya penjelas/topik, fokus ke materi. Hindari 'aku/kamu' berlebihan."],
+    ["Orang ketiga","Sudut orang ketiga ('dia/mereka'): ceritakan tentang orang lain / studi kasus, bukan diri sendiri atau menyapa penonton."]
   ],
   awareness:[
     ["Unaware","Audiens belum sadar masalahnya — JANGAN langsung jualan/sebut produk. Buka dengan problem/cerita relatable dulu."],
@@ -686,9 +701,14 @@ function angleRule(s){
   if(/Auto/i.test(v)) return '';
   return ruleFor(R.angle,v) || ('Pakai ANGLE / sudut masuk: '+v+'. Bangun seluruh konten dari sudut ini.');
 }
+function povRule(s){
+  const v=s.pov; if(!v) return '';
+  return ruleFor(R.pov,v) || ('Tulis dengan sudut bicara / kata ganti: '+v+'. Konsisten sepanjang naskah.');
+}
 function tacticalBlock(s){
   const out=[]; const add=x=>{ if(x) out.push('* '+x); };
   add(angleRule(s));
+  add(povRule(s));
   add(ruleFor(R.target,s.target));
   add(ruleFor(R.avatar,s.avatar));
   add(ruleFor(R.tujuan,s.tujuan));
