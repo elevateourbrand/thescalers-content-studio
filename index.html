@@ -1132,6 +1132,7 @@ function buildField(f){
   if(f.type==='text'||f.type==='textarea'){
     const el=document.createElement(f.type==='textarea'?'textarea':'input');
     el.placeholder=f.ph||''; el.className='ctrl'; el.autocomplete='off'; el.setAttribute('autocomplete','off'); el.name='f'+Math.random().toString(36).slice(2,8);
+    el.readOnly=true; el.addEventListener('focus',function(){el.readOnly=false;},{once:true}); el.addEventListener('pointerdown',function(){el.readOnly=false;},{once:true});
     el.addEventListener('input',()=>el.classList.remove('err'));
     if(f.type==='textarea'){
       el.rows=1;
