@@ -1130,7 +1130,7 @@ function buildField(f){
 
   if(f.type==='text'||f.type==='textarea'){
     const el=document.createElement(f.type==='textarea'?'textarea':'input');
-    el.placeholder=f.ph||''; el.className='ctrl';
+    el.placeholder=f.ph||''; el.className='ctrl'; el.autocomplete='off'; el.setAttribute('autocomplete','off'); el.name='f'+Math.random().toString(36).slice(2,8);
     el.addEventListener('input',()=>el.classList.remove('err'));
     if(f.type==='textarea'){
       el.rows=1;
@@ -1153,7 +1153,7 @@ function buildField(f){
     sel.innerHTML='<option value="">-- Pilih --</option>'
       +(O[f.opt]||[]).map(o=>`<option>${o}</option>`).join('')
       +(allowCustom?`<option value="${CUSTOM}">✏️ Buat sendiri…</option>`:'');
-    const cust=document.createElement('input'); cust.type='text'; cust.className='custom';
+    const cust=document.createElement('input'); cust.type='text'; cust.className='custom'; cust.autocomplete='off'; cust.setAttribute('autocomplete','off'); cust.name='c'+Math.random().toString(36).slice(2,8);
     cust.placeholder='Ketik versimu…'; cust.style.cssText='display:none;margin-top:6px';
     cust.addEventListener('input',()=>cust.classList.remove('err'));
     sel.addEventListener('change',()=>{
