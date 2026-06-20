@@ -27,6 +27,7 @@
   .brandbox h1{font-size:15.5px;margin:0;line-height:1.1}
   .brandbox p{margin:2px 0 0;font-size:10.5px;color:var(--muted);letter-spacing:1px}
   .navlabel{font-size:10.5px;letter-spacing:1.5px;color:var(--muted);padding:8px 10px 6px;text-transform:uppercase}
+  .navgroup{border:1px solid var(--line);background:rgba(255,255,255,.022);border-radius:14px;padding:6px 6px 8px;margin-bottom:12px}
   .navbtn{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:transparent;
     border:1px solid transparent;color:var(--muted);border-radius:11px;padding:11px 12px;font-size:13.5px;
     cursor:pointer;margin-bottom:3px;font-family:inherit}
@@ -799,8 +800,9 @@ const GROUPS=[
 ];
 const nav=$('nav');
 GROUPS.forEach((grp,gi)=>{
-  const lab=document.createElement('div'); lab.className='navlabel'; if(gi>0)lab.style.marginTop='14px'; lab.textContent=grp.label;
-  nav.appendChild(lab);
+  const gWrap=document.createElement('div'); gWrap.className='navgroup';
+  const lab=document.createElement('div'); lab.className='navlabel'; lab.textContent=grp.label;
+  gWrap.appendChild(lab);
   grp.ids.forEach(id=>{
     const g=GEN[id]; if(!g) return;
     const b=document.createElement('button');
@@ -808,22 +810,27 @@ GROUPS.forEach((grp,gi)=>{
     b.dataset.id=id;
     b.innerHTML=`<span class="ic">${g.icon}</span> ${g.name}`;
     b.onclick=()=>selectTool(id);
-    nav.appendChild(b);
+    gWrap.appendChild(b);
   });
+  nav.appendChild(gWrap);
 });
-const navlab1=document.createElement('div'); navlab1.className='navlabel'; navlab1.style.marginTop='12px'; navlab1.textContent='Pengaturan';
-nav.appendChild(navlab1);
+const setWrap=document.createElement('div'); setWrap.className='navgroup';
+const navlab1=document.createElement('div'); navlab1.className='navlabel'; navlab1.textContent='Pengaturan';
+setWrap.appendChild(navlab1);
 const brandBtn=document.createElement('button'); brandBtn.className='navbtn'; brandBtn.dataset.id='brand';
 brandBtn.innerHTML='<span class="ic">🏷️</span> Brand Profile'; brandBtn.onclick=()=>selectTool('brand');
-nav.appendChild(brandBtn);
+setWrap.appendChild(brandBtn);
 const histBtn=document.createElement('button'); histBtn.className='navbtn'; histBtn.dataset.id='history';
 histBtn.innerHTML='<span class="ic">🕘</span> Riwayat'; histBtn.onclick=()=>selectTool('history');
-nav.appendChild(histBtn);
-const navlab2=document.createElement('div'); navlab2.className='navlabel'; navlab2.style.marginTop='12px'; navlab2.textContent='Bantuan';
-nav.appendChild(navlab2);
+setWrap.appendChild(histBtn);
+nav.appendChild(setWrap);
+const helpWrap=document.createElement('div'); helpWrap.className='navgroup';
+const navlab2=document.createElement('div'); navlab2.className='navlabel'; navlab2.textContent='Bantuan';
+helpWrap.appendChild(navlab2);
 const guideBtn=document.createElement('button'); guideBtn.className='navbtn'; guideBtn.dataset.id='guide';
 guideBtn.innerHTML='<span class="ic">📖</span> Panduan'; guideBtn.onclick=()=>selectTool('guide');
-nav.appendChild(guideBtn);
+helpWrap.appendChild(guideBtn);
+nav.appendChild(helpWrap);
 
 function selectTool(id){
   if(id==='guide') return showGuide();
