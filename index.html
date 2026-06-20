@@ -245,6 +245,7 @@ const GEN = {
         {k:"visual",label:"Gaya Visual",opt:"VISUAL_STYLE",full:true}]},
       {n:3,t:"Strategi Copywriting",f:[
         {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"framework",label:"Framework Copy",opt:"FRAMEWORK"},
         {k:"hook",label:"Hook Pembuka",opt:"HOOK"}]},
       {n:4,t:"Target Audience",f:[
@@ -256,7 +257,6 @@ const GEN = {
         {k:"prodName",label:"Nama Produk",type:"text",ph:"Contoh: Serum Glowing A",full:true},
         {k:"prodType",label:"Jenis Produk",opt:"JENIS_PRODUK"},
         {k:"tone",label:"Gaya Bahasa (Tone)",opt:"TONE"},
-        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"pain",label:"Masalah Audience (Pain)",type:"textarea",ph:"Contoh: Wajah kusam",full:true},
         {k:"benefit",label:"Solusi / Benefit Utama",type:"textarea",ph:"Contoh: Glowing 7 hari",full:true},
         {k:"usp",label:"USP / Kenapa beli di sini",type:"textarea",ph:"Contoh: BPOM, garansi 30 hari",full:true},
@@ -463,6 +463,7 @@ const GEN = {
         {k:"winElement",label:"Elemen yang bikin menang (opsional)",type:"textarea",ph:"mis. hook soal harga, pakai testimoni, demo produk",req:false,full:true}]},
       {n:2,t:"Strategi Iterasi",f:[
         {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
+        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
         {k:"vary",label:"Variasikan (boleh diubah)",type:"checks",full:true,req:false,items:["Hook baru","Angle/sudut baru","Format lain (UGC/talking head/story)","Durasi beda (15s/30s/60s)","Persona/avatar beda","Awareness level beda (dingin vs hangat)","Tone/demografi beda"]},
         {k:"keep",label:"Pertahankan (dikunci, jangan diubah)",type:"checks",full:true,req:false,items:["Offer / penawaran","Call to action (CTA)","Struktur alur","Hook asli","Benefit utama","Bukti / proof / testimoni"]}]},
       {n:3,t:"Konteks Produk (auto dari Brand Profile)",f:[
@@ -470,8 +471,7 @@ const GEN = {
         {k:"prodDesc",label:"Penjelasan Produk (isi kalau produknya beda / ganti dari iklan asli)",type:"textarea",ph:"Jelaskan produk yang mau diiterasikan: manfaat utama, target, penawaran/harga...",req:false,full:true},
         {k:"target",label:"Target Market",opt:"TARGET",req:false},
         {k:"niche",label:"Compliance / Niche",opt:"NICHE",req:false},
-        {k:"tone",label:"Tone",opt:"TONE",req:false},
-        {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false}]},
+        {k:"tone",label:"Tone",opt:"TONE",req:false}]},
       {n:4,t:"Output",f:[
         {k:"jumlah",label:"Jumlah Iterasi",opt:"JUMLAH_ITER",def:1,custom:false},
         {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
@@ -1103,7 +1103,7 @@ function renderForm(id){
     <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Opsi Generate</div>
     <div class="optrow">
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <label class="chip" title="Tiap generate dibuat beda angle + hindari pengulangan"><input type="checkbox" id="freshMode" checked> 🎲 Freshness Engine</label>
+        <label class="chip" title="Tiap generate dibuat beda angle + hindari pengulangan"><input type="checkbox" id="freshMode"> 🎲 Freshness Engine</label>
         <label class="chip" title="Suruh AI cari & pakai tren terkini (butuh AI yang punya web search aktif)"><input type="checkbox" id="trendMode"> 🔥 Pakai tren terkini</label>
       </div>
       <button class="copybtn" id="resetMem" title="Lupakan variasi yang sudah dipakai">↺ Reset memori</button>
