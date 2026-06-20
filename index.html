@@ -278,8 +278,9 @@ const GEN = {
       p+=`\n**ATURAN OUTPUT:**\n`;
       p+=`* Kunci pada SATU key message utama yang lengket di kepala audiens.\n`;
       p+=`* Bangun resonansi emosional: sentuh pain "${s.pain||'—'}" / desire di balik "${s.benefit||'—'}", jangan cuma sebut fitur.\n`;
-      p+=`* IKUTI STRUKTUR khusus jenis konten "${s.jenis||'umum'}": ${structFor(s.jenis)}. JANGAN pakai struktur generik yang sama untuk semua jenis.\n`;
-      p+=`* Di dalam body, susun argumen mengikuti alur framework: ${fwFlow(s.framework)}.\n`;
+      p+=`* SUSUN SATU ALUR TUNGGAL yang memadukan bentuk konten "${s.jenis||'umum'}" (acuan bentuk: ${structFor(s.jenis)}) dengan teknik persuasi framework ${fwFlow(s.framework)}. JANGAN tulis dua struktur terpisah — lebur jadi satu alur yang mengalir; kalau bentuk & framework tampak beda, jadikan BENTUK jenis konten sebagai kerangka utama lalu terapkan logika persuasi framework di dalamnya. Tetap spesifik untuk jenis ini (jangan generik).\n`;
+      p+=`* Kalau ada arahan yang bertentangan soal seberapa keras jualan (mis. Tujuan/Awareness menahan jualan tapi Jenis Konten/CTA mendorong), IKUTI TUJUAN sebagai intent utama & sesuaikan CTA-nya.\n`;
+      p+=`* Kalau Platform, Format, & Gaya Visual menyiratkan medium berbeda (video vs statis vs slide), IKUTI PLATFORM sebagai medium utama & sesuaikan format/visual ke situ.\n`;
       p+=`* Hook 3 detik pertama wajib menampar. Akhiri dengan CTA: ${s.cta||'ajakan jelas'}.\n`;
       p+=`* Beri heading jelas tiap script: "📝 SCRIPT A", "📝 SCRIPT B", dst — pisahkan script dari catatan/analisis apa pun. Untuk video, sisipkan arahan visual singkat dalam (kurung).\n`;
       (s.extras||[]).forEach(e=>{p+=`* ${e}.\n`;});
@@ -511,7 +512,7 @@ const R={
     ["Rahasia","Posisikan info sebagai bocoran yang jarang dibagikan; pancing rasa 'wah baru tahu' di awal."],
     ["Mitos","Mulai dengan membantah satu anggapan umum yang dipercaya audiens, lalu bongkar kenapa keliru + apa yang benar."],
     ["Bukti Sosial","Sandarkan klaim pada pengalaman banyak orang (jumlah, reaksi, hasil) biar audiens merasa aman ikut."],
-    ["Cerita Personal","Bingkai sebagai cerita orang pertama (momen titik balik); biarkan pelajaran muncul dari kisah, bukan digurui."],
+    ["Cerita Personal","Bingkai sebagai cerita pengalaman pribadi (momen titik balik); biarkan pelajaran muncul dari kisah, bukan digurui; kata ganti ikut POV/Tone."],
     ["Penasaran","Buka loop penasaran di kalimat pertama (pertanyaan/janji terselubung), baru tutup di akhir."],
     ["Aspirasi","Lukis gambaran hasil/identitas ideal yang diidamkan; jual versi diri mereka yang lebih baik."],
     ["Cara Lama","Adu cara lama yang ribet vs cara baru yang ringkas; menangkan lewat kontras, bukan klaim kosong."],
@@ -545,10 +546,10 @@ const R={
   ],
   platform:[
     ["Carousel","Format carousel: pecah jadi slide — slide 1 cover/hook, tiap slide 1 ide ringkas, slide terakhir CTA. Teks padat & mudah dibaca di layar HP."],
-    ["TikTok","Format vertikal cepat: hook 3 detik pertama wajib menampar, ritme cepat, bahasa santai."],
+    ["TikTok","Format vertikal cepat: hook 3 detik pertama wajib menampar, ritme cepat; register/tone ikut field Tone."],
     ["YouTube","Boleh lebih panjang & mendalam: struktur intro–isi–outro, jaga retensi tiap ~30 detik."],
     ["Instagram","Visual estetik: caption rapi, baris pertama hook, manfaatkan line-break/spasi."],
-    ["LinkedIn","Tone profesional & kredibel, insight bisnis; hindari clickbait murahan."],
+    ["LinkedIn","Format profesional: insight bisnis & kredibel, hindari clickbait murahan; register/tone ikut field Tone."],
     ["Facebook","Sentuh emosi & cerita naratif; cocok demografi lebih dewasa."],
     ["Twitter","Sangat ringkas & punchy: 1 ide kuat per kalimat, hook di kalimat pertama."],
     ["Pinterest","Optimalkan untuk search: keyword di judul, visual vertikal, tips actionable."],
@@ -623,14 +624,14 @@ const R={
     ["Umum","Audiens umum: bahasa sehari-hari paling sederhana, hindari semua jargon."]
   ],
   avatar:[
-    ["Founder","Suara: visioner & jujur dari sudut pemilik yang peduli ('aku bikin ini karena...')."],
-    ["UGC","Suara: kayak temen lagi cerita (sok akrab), super casual & spontan ('eh aku mau spill...')."],
+    ["Founder","Suara: visioner & jujur dari sudut pemilik yang peduli & punya misi; kata ganti ikut POV/Tone."],
+    ["UGC","Suara: kayak temen lagi cerita (sok akrab), super casual & spontan; kata ganti ikut POV/Tone."],
     ["Expert","Suara: berwibawa & pintar, pakai data/logika, posisikan sebagai mentor."],
-    ["Testimonial","Sudut: 'aku user yang sudah coba' — bukti sosial, ceritakan pengalaman nyata."],
+    ["Testimonial","Sudut: orang yang sudah benar-benar coba sendiri — bukti sosial, ceritakan pengalaman nyata; kata ganti ikut POV/Tone."],
     ["Voice Over","Tanpa wajah: tulis sebagai voice-over naratif + arahkan b-roll visual."],
     ["Faceless","Tanpa wajah: naratif voice-over, deskripsikan visual pendukung."],
     ["Motion","Gaya naratif untuk motion graphic/animasi, poin per poin visual."],
-    ["Case Study Presenter","Suara analitis: presentasikan data → proses → hasil secara terstruktur."],
+    ["Case Study Presenter","Suara analitis & berbasis bukti: nada presentasi yang kredibel & rapi; STRUKTUR/urutan ikut Framework & Jenis Konten (jangan bikin alur sendiri)."],
     ["Narator","Suara pendongeng: bawakan seperti bercerita — pakai detail adegan, emosi, & ketegangan biar penonton 'masuk' ke cerita; nada hangat/cinematic. STRUKTUR/kerangka tetap ikut Framework & Jenis Konten (jangan bikin alur sendiri); kata ganti ikut Tone/POV."]
   ],
   tujuan:[
