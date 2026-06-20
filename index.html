@@ -1283,17 +1283,11 @@ function enterApp(){
 async function isPaid(uid){ try{ const {data,error}=await sb.from('profiles').select('is_paid').eq('id',uid).single(); if(error)return false; return !!(data&&data.is_paid); }catch(e){ return false; } }
 function gate(session){
   if(!session){ showAuthLogin(); return; }
-  isPaid(session.user.id).then(paid=>{
-    if(paid){
-      authMsg('');
-      if(loggingIn){ loggingIn=false; const b=$('authBtn'); if(b){ b.innerHTML='✓ Berhasil!'; b.classList.add('done'); } setTimeout(enterApp,400); }
-      else { hideAuth(); }
-    } else {
-      loggingIn=false; authMsg('Akun belum aktif. Hubungi admin lewat WA / email.');
-      const b=$('authBtn'); if(b){ b.disabled=false; b.classList.remove('done'); b.textContent='Masuk'; }
-      sb.auth.signOut(); showAuthLogin();
-    }
-  });
+  // Akses = punya akun valid. Signup publik dimatikan di Supabase (disable_signup=true),
+  // jadi hanya akun yang dibuat admin yang bisa ada. Gate is_paid dihapus.
+  authMsg('');
+  if(loggingIn){ loggingIn=false; const b=$('authBtn'); if(b){ b.innerHTML='✓ Berhasil!'; b.classList.add('done'); } setTimeout(enterApp,400); }
+  else { hideAuth(); }
 }
 async function initAuth(){
   if(!authConfigured()){ return; } // mode dev: tanpa gerbang login
