@@ -1330,9 +1330,12 @@ function gate(session){
 }
 async function initAuth(){
   if(!authConfigured()){ return; } // mode dev: tanpa gerbang login
+  var _h=location.hash||'', _s=location.search||'';
+  var _ut=((_h.match(/type=([a-z]+)/i)||[])[1]||new URLSearchParams(_s).get('type')||'').toLowerCase();
+  var _err=(_h.match(/error_code=([^&]+)/i)||[])[1]||(_h.match(/error=([^&]+)/i)||[])[1]||'';
+  pwSetupMode=(_ut==='invite'||_ut==='recovery'||_ut==='signup'||_h.indexOf('access_token=')>-1);
+  if(pwSetupMode){ showSetPw(); } else { showAuthLogin(); if(_err){ authMsg('Link kedaluwarsa atau sudah dipakai. Minta link baru ya.'); } }
   sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-  { const ut=((location.hash.match(/type=([a-z]+)/i)||[])[1]||new URLSearchParams(location.search).get('type')||'').toLowerCase(); pwSetupMode=(ut==='invite'||ut==='recovery'||ut==='signup'); }
-  if(pwSetupMode){ showSetPw(); } else { showAuthLogin(); }
   $('authBtn').onclick=async()=>{
     const email=$('authEmail').value.trim(), pass=$('authPass').value;
     if(!email||!pass){ authMsg('Isi email & password dulu.'); return; }
