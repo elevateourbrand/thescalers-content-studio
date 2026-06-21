@@ -191,6 +191,19 @@
   <div id="welcomeLayer"><span class="spin big"></span><div id="welcomeMsg">Menyiapkan studio…</div></div>
 </div>
 
+<div id="setPwScreen" style="position:fixed;inset:0;z-index:201;display:none;align-items:center;justify-content:center;padding:20px;background:radial-gradient(1000px 500px at 70% -10%,#1b2350 0,transparent 60%),var(--bg)">
+  <div class="authcard" style="text-align:center">
+    <div style="text-align:center;padding:0 0 14px"><h1 style="margin:0;font-size:18px">The Scalers</h1><p style="margin:2px 0 0;font-size:11px;letter-spacing:.18em;color:var(--muted)">CONTENT STUDIO</p></div>
+    <h2>Buat Password</h2>
+    <p class="hint" style="margin:2px 0 4px">Selangkah lagi — buat password untuk akunmu, lalu langsung masuk.</p>
+    <input id="newPass" type="password" placeholder="Password baru (min. 8 karakter)" autocomplete="new-password">
+    <input id="newPass2" type="password" placeholder="Ulangi password" autocomplete="new-password">
+    <div class="auth-msg" id="setPwMsg"></div>
+    <button class="btn primary" id="setPwBtn" style="width:100%;margin-top:6px">Simpan &amp; Masuk</button>
+    <p class="authswitch">Setelah ini kamu langsung masuk ke studio.</p>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ============ OPTION LISTS ============ */
@@ -1291,9 +1304,11 @@ const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 let sb=null;
 const authConfigured=()=>!!(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase);
 function authMsg(t,ok){ const m=$('authMsg'); if(m){ m.textContent=t||''; m.style.color=ok?'var(--ok)':'#ff7a87'; } }
-let loggingIn=false;
+let loggingIn=false; let pwSetupMode=false;
 function showAuthLogin(){ const as=$('authScreen'); as.style.display='flex'; as.style.opacity='1'; as.style.transition=''; as.classList.remove('entering'); const wm=$('welcomeMsg'); if(wm)wm.textContent='Menyiapkan studio…'; $('logoutBtn').style.display='none'; const b=$('authBtn'); if(b){ b.disabled=false; b.classList.remove('done'); b.textContent='Masuk'; } }
 function hideAuth(){ $('authScreen').style.display='none'; $('logoutBtn').style.display='flex'; }
+function showSetPw(){ const a=$('authScreen'); if(a)a.style.display='none'; const s=$('setPwScreen'); if(s)s.style.display='flex'; }
+function setPwMsg(t,ok){ const m=$('setPwMsg'); if(m){ m.textContent=t||''; m.style.color=ok?'var(--ok)':'#ff7a87'; } }
 function enterApp(){
   const as=$('authScreen'); as.classList.add('entering');
   setTimeout(()=>{ as.style.transition='opacity .45s'; as.style.opacity='0';
@@ -1305,6 +1320,7 @@ function enterApp(){
 }
 async function isPaid(uid){ try{ const {data,error}=await sb.from('profiles').select('is_paid').eq('id',uid).single(); if(error)return false; return !!(data&&data.is_paid); }catch(e){ return false; } }
 function gate(session){
+  if(pwSetupMode){ showSetPw(); return; }
   if(!session){ showAuthLogin(); return; }
   // Akses = punya akun valid. Signup publik dimatikan di Supabase (disable_signup=true),
   // jadi hanya akun yang dibuat admin yang bisa ada. Gate is_paid dihapus.
@@ -1315,7 +1331,8 @@ function gate(session){
 async function initAuth(){
   if(!authConfigured()){ return; } // mode dev: tanpa gerbang login
   sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-  showAuthLogin();
+  { const ut=((location.hash.match(/type=([a-z]+)/i)||[])[1]||new URLSearchParams(location.search).get('type')||'').toLowerCase(); pwSetupMode=(ut==='invite'||ut==='recovery'||ut==='signup'); }
+  if(pwSetupMode){ showSetPw(); } else { showAuthLogin(); }
   $('authBtn').onclick=async()=>{
     const email=$('authEmail').value.trim(), pass=$('authPass').value;
     if(!email||!pass){ authMsg('Isi email & password dulu.'); return; }
@@ -1326,6 +1343,18 @@ async function initAuth(){
     // sukses → gate() (via onAuthStateChange) yang akan menganimasikan masuk ke app
   };
   $('authPass').addEventListener('keydown',e=>{ if(e.key==='Enter') $('authBtn').click(); });
+  $('setPwBtn').onclick=async()=>{
+    const p1=$('newPass').value, p2=$('newPass2').value;
+    if(!p1||p1.length<8){ setPwMsg('Password minimal 8 karakter.'); return; }
+    if(p1!==p2){ setPwMsg('Password belum sama.'); return; }
+    const b=$('setPwBtn'); b.disabled=true; b.innerHTML='<span class="spin"></span> Menyimpan…'; setPwMsg('');
+    const {error}=await sb.auth.updateUser({password:p1});
+    if(error){ b.disabled=false; b.textContent='Simpan & Masuk'; setPwMsg('Gagal: '+(error.message||'coba lagi')); return; }
+    pwSetupMode=false; try{ history.replaceState(null,'',location.pathname); }catch(e){}
+    b.innerHTML='✓ Berhasil!'; b.classList.add('done');
+    setTimeout(()=>{ $('setPwScreen').style.display='none'; $('authScreen').style.display='none'; $('logoutBtn').style.display='flex'; }, 650);
+  };
+  $('newPass2').addEventListener('keydown',e=>{ if(e.key==='Enter') $('setPwBtn').click(); });
   $('logoutBtn').onclick=async()=>{
     const as=$('authScreen'); const wm=$('welcomeMsg'); if(wm)wm.textContent='Keluar…';
     as.classList.add('entering'); as.style.display='flex'; as.style.opacity='0'; as.style.transition='opacity .3s';
@@ -1335,7 +1364,7 @@ async function initAuth(){
   };
   const {data:{session}}=await sb.auth.getSession();
   gate(session);
-  sb.auth.onAuthStateChange((_e,s)=>gate(s));
+  sb.auth.onAuthStateChange((_e,s)=>{ if(_e==='PASSWORD_RECOVERY'){ pwSetupMode=true; showSetPw(); return; } gate(s); });
 }
 
 // init
