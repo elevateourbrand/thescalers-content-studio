@@ -186,6 +186,7 @@
     <input id="authPass" type="password" placeholder="Password" autocomplete="current-password">
     <div class="auth-msg" id="authMsg"></div>
     <button class="btn primary" id="authBtn" style="width:100%;margin-top:6px">Masuk</button>
+    <p class="authswitch" style="margin-top:10px"><a id="forgotPw">Lupa password?</a></p>
     <p class="authswitch">Belum punya akses? Hubungi admin via WA / email.</p>
   </div>
   <div id="welcomeLayer"><span class="spin big"></span><div id="welcomeMsg">Menyiapkan studio…</div></div>
@@ -1346,6 +1347,15 @@ async function initAuth(){
     // sukses → gate() (via onAuthStateChange) yang akan menganimasikan masuk ke app
   };
   $('authPass').addEventListener('keydown',e=>{ if(e.key==='Enter') $('authBtn').click(); });
+  var _fp=$('forgotPw');
+  if(_fp) _fp.onclick=async()=>{
+    const email=$('authEmail').value.trim();
+    if(!email){ authMsg('Isi email kamu dulu, lalu klik "Lupa password?".'); return; }
+    authMsg('Mengirim link reset…', true);
+    const {error}=await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin });
+    if(error){ authMsg('Gagal kirim. Coba lagi sebentar ya.'); return; }
+    authMsg('Kalau email ini terdaftar, link reset password sudah dikirim. Cek inbox & folder spam ya.', true);
+  };
   $('setPwBtn').onclick=async()=>{
     const p1=$('newPass').value, p2=$('newPass2').value;
     if(!p1||p1.length<8){ setPwMsg('Password minimal 8 karakter.'); return; }
