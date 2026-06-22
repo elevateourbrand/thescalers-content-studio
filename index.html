@@ -124,6 +124,9 @@
   .authcard{width:380px;max-width:100%;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:26px}
   .authcard h2{margin:0 0 4px;font-size:20px}
   .authcard input{width:100%;margin-top:10px}
+  .pwwrap{position:relative;margin-top:10px}
+  .pwwrap input{margin-top:0;padding-right:44px}
+  .pweye{position:absolute;right:12px;top:0;height:100%;display:flex;align-items:center;cursor:pointer;font-size:16px;opacity:.55;user-select:none}
   .auth-msg{font-size:12.5px;min-height:16px;margin-top:8px;line-height:1.45}
   .authswitch{font-size:12.5px;color:var(--muted);text-align:center;margin:14px 0 0}
   .authswitch a{color:var(--brand2);cursor:pointer;text-decoration:underline}
@@ -183,7 +186,7 @@
     <h2 id="authTitle">Masuk</h2>
     <p class="hint" style="margin:2px 0 4px">Akses khusus member aktif.</p>
     <input id="authEmail" type="email" placeholder="Email" autocomplete="email">
-    <input id="authPass" type="password" placeholder="Password" autocomplete="current-password">
+    <div class="pwwrap"><input id="authPass" type="password" placeholder="Password" autocomplete="current-password"><span class="pweye" data-eye="authPass">👁</span></div>
     <div class="auth-msg" id="authMsg"></div>
     <button class="btn primary" id="authBtn" style="width:100%;margin-top:6px">Masuk</button>
     <p class="authswitch" style="margin-top:10px"><a id="forgotPw">Lupa password?</a></p>
@@ -197,11 +200,11 @@
     <div style="text-align:center;padding:0 0 14px"><h1 style="margin:0;font-size:18px">The Scalers</h1><p style="margin:2px 0 0;font-size:11px;letter-spacing:.18em;color:var(--muted)">CONTENT STUDIO</p></div>
     <h2>Buat Password</h2>
     <p class="hint" style="margin:2px 0 4px">Selangkah lagi — buat password untuk akunmu, lalu langsung masuk.</p>
-    <input id="newPass" type="password" placeholder="Password baru (min. 8 karakter)" autocomplete="new-password">
-    <input id="newPass2" type="password" placeholder="Ulangi password" autocomplete="new-password">
+    <div class="pwwrap"><input id="newPass" type="password" placeholder="Password baru (min. 8 karakter)" autocomplete="new-password"><span class="pweye" data-eye="newPass">👁</span></div>
+    <div class="pwwrap"><input id="newPass2" type="password" placeholder="Ulangi password" autocomplete="new-password"><span class="pweye" data-eye="newPass2">👁</span></div>
     <div class="auth-msg" id="setPwMsg"></div>
     <button class="btn primary" id="setPwBtn" style="width:100%;margin-top:6px">Simpan &amp; Masuk</button>
-    <p class="authswitch">Setelah ini kamu langsung masuk ke studio.</p>
+    <p class="authswitch">Setelah ini kamu langsung masuk ke studio.<br><a id="cancelPw" style="cursor:pointer">Batal &amp; kembali ke login</a></p>
   </div>
 </div>
 
@@ -1323,6 +1326,7 @@ async function isPaid(uid){ try{ const {data,error}=await sb.from('profiles').se
 function gate(session){
   if(pwSetupMode){ showSetPw(); return; }
   if(!session){ showAuthLogin(); return; }
+  try{ if(localStorage.getItem('cs_must_set_pw')==='1'){ pwSetupMode=true; showSetPw(); return; } }catch(e){}
   // Akses = punya akun valid. Signup publik dimatikan di Supabase (disable_signup=true),
   // jadi hanya akun yang dibuat admin yang bisa ada. Gate is_paid dihapus.
   authMsg('');
@@ -1335,7 +1339,7 @@ async function initAuth(){
   var _ut=((_h.match(/type=([a-z]+)/i)||[])[1]||new URLSearchParams(_s).get('type')||'').toLowerCase();
   var _err=(_h.match(/error_code=([^&]+)/i)||[])[1]||(_h.match(/error=([^&]+)/i)||[])[1]||'';
   pwSetupMode=(_ut==='invite'||_ut==='recovery'||_ut==='signup'||_h.indexOf('access_token=')>-1);
-  if(pwSetupMode){ showSetPw(); } else { showAuthLogin(); if(_err){ authMsg('Link kedaluwarsa atau sudah dipakai. Minta link baru ya.'); } }
+  if(pwSetupMode){ try{localStorage.setItem('cs_must_set_pw','1');}catch(e){} showSetPw(); } else { showAuthLogin(); if(_err){ authMsg('Link kedaluwarsa atau sudah dipakai. Minta link baru ya.'); } }
   sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
   $('authBtn').onclick=async()=>{
     const email=$('authEmail').value.trim(), pass=$('authPass').value;
@@ -1344,6 +1348,7 @@ async function initAuth(){
     loggingIn=true;
     const {error}=await sb.auth.signInWithPassword({email,password:pass});
     if(error){ loggingIn=false; b.disabled=false; b.classList.remove('done'); b.textContent='Masuk'; authMsg('Email atau password salah.'); return; }
+    try{ localStorage.removeItem('cs_must_set_pw'); }catch(e){}
     // sukses → gate() (via onAuthStateChange) yang akan menganimasikan masuk ke app
   };
   $('authPass').addEventListener('keydown',e=>{ if(e.key==='Enter') $('authBtn').click(); });
@@ -1363,21 +1368,33 @@ async function initAuth(){
     const b=$('setPwBtn'); b.disabled=true; b.innerHTML='<span class="spin"></span> Menyimpan…'; setPwMsg('');
     const {error}=await sb.auth.updateUser({password:p1});
     if(error){ b.disabled=false; b.textContent='Simpan & Masuk'; setPwMsg('Gagal: '+(error.message||'coba lagi')); return; }
-    pwSetupMode=false; try{ history.replaceState(null,'',location.pathname); }catch(e){}
+    pwSetupMode=false; try{ history.replaceState(null,'',location.pathname); }catch(e){} try{ localStorage.removeItem('cs_must_set_pw'); }catch(e){}
     b.innerHTML='✓ Berhasil!'; b.classList.add('done');
     setTimeout(()=>{ $('setPwScreen').style.display='none'; $('authScreen').style.display='none'; $('logoutBtn').style.display='flex'; }, 650);
   };
   $('newPass2').addEventListener('keydown',e=>{ if(e.key==='Enter') $('setPwBtn').click(); });
+  var _cp=$('cancelPw');
+  if(_cp) _cp.onclick=async()=>{
+    try{ localStorage.removeItem('cs_must_set_pw'); }catch(e){}
+    pwSetupMode=false; try{ history.replaceState(null,'',location.pathname); }catch(e){}
+    if($('setPwScreen')) $('setPwScreen').style.display='none';
+    try{ await sb.auth.signOut(); }catch(e){}
+    showAuthLogin();
+  };
   $('logoutBtn').onclick=async()=>{
     const as=$('authScreen'); const wm=$('welcomeMsg'); if(wm)wm.textContent='Keluar…';
     as.classList.add('entering'); as.style.display='flex'; as.style.opacity='0'; as.style.transition='opacity .3s';
     requestAnimationFrame(()=>{ as.style.opacity='1'; });
     await new Promise(r=>setTimeout(r,850));
+    try{ localStorage.removeItem('cs_must_set_pw'); }catch(e){}
     await sb.auth.signOut();
   };
+  document.querySelectorAll('.pweye').forEach(function(eye){
+    eye.onclick=function(){ var inp=document.getElementById(eye.getAttribute('data-eye')); if(!inp)return; if(inp.type==='password'){inp.type='text';eye.style.opacity='1';}else{inp.type='password';eye.style.opacity='.55';} };
+  });
   const {data:{session}}=await sb.auth.getSession();
   gate(session);
-  sb.auth.onAuthStateChange((_e,s)=>{ if(_e==='PASSWORD_RECOVERY'){ pwSetupMode=true; showSetPw(); return; } gate(s); });
+  sb.auth.onAuthStateChange((_e,s)=>{ if(_e==='PASSWORD_RECOVERY'){ pwSetupMode=true; try{localStorage.setItem('cs_must_set_pw','1');}catch(e){} showSetPw(); return; } gate(s); });
 }
 
 // init
