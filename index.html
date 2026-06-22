@@ -74,7 +74,9 @@
   .field.full{grid-column:1/-1}
   label{font-size:12.5px;color:var(--muted)}
   label .req{color:#ff7a87}
-  .fhint{font-size:11px;color:var(--muted);margin:-2px 0 4px;line-height:1.4}
+  .fhint{font-size:11.5px;color:var(--muted);margin:6px 0 2px;line-height:1.5;background:rgba(110,123,255,.08);border-left:2px solid var(--brand);padding:7px 10px;border-radius:6px}
+  .finfo{display:inline-grid;place-items:center;width:15px;height:15px;margin-left:6px;border-radius:50%;background:var(--line);color:var(--ink);font-size:10px;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:pointer;vertical-align:middle;user-select:none}
+  .finfo:hover{background:var(--brand);color:#fff}
   select,input,textarea{width:100%;background:#0c1430;border:1px solid var(--line);color:var(--ink);
     border-radius:10px;padding:10px 11px;font-size:13.5px;outline:none;font-family:inherit}
   select:focus,input:focus,textarea:focus{border-color:var(--brand)}
@@ -323,7 +325,7 @@ const GEN = {
         {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false}]},
       {n:3,t:"Output",f:[
         {k:"format",label:"Format & Durasi",opt:"FORMAT_DURASI",def:1},
-        {k:"takeaway",label:"Satu Pesan Utama / Takeaway (opsional)",type:"text",ph:"Contoh: Mulai nabung dari nominal kecil lebih penting dari nunggu gaji besar",req:false,full:true},
+        {k:"takeaway",label:"Satu Pesan Utama / Takeaway",type:"text",ph:"Contoh: Mulai nabung dari nominal kecil lebih penting dari nunggu gaji besar",req:false,full:true},
         {k:"cta",label:"CTA Lembut",opt:"CTA_SOFT",def:0},
         {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0},
         {k:"jumlah",label:"Jumlah Variasi Script",opt:"JUMLAH_SCRIPT",def:0,custom:false}]}
@@ -424,7 +426,7 @@ const GEN = {
         {k:"panjang",label:"Panjang Caption",opt:"PANJANG",def:1,custom:false},
         {k:"cta",label:"Call to Action",opt:"CTA"},
         {k:"emoji",label:"Penggunaan Emoji",opt:"EMOJI",def:0,custom:false},
-        {k:"keyword",label:"Fokus Keyword / Hashtag (opsional)",type:"text",ph:"Contoh: skincare lokal",req:false,full:true},
+        {k:"keyword",label:"Fokus Keyword / Hashtag",type:"text",ph:"Contoh: skincare lokal",req:false,full:true},
         {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
     ],
     prompt:s=>{
@@ -449,7 +451,7 @@ const GEN = {
         {k:"topik",label:"Topik / Isi yang dibahas",type:"textarea",ph:"Contoh: 5 kesalahan pemula investasi",full:true},
         {k:"hook",label:"Hook / Judul Cover (Slide 1)",opt:"HOOK",req:false,hint:"Gaya pembuka yang jadi judul besar di slide 1. Mau ketik judul sendiri? Pilih ✏️ Buat sendiri — AI tetap boleh menyempurnakan & kasih alternatif."},
         {k:"hookLen",label:"Panjang Hook",opt:"PANJANG_HOOK",def:0,custom:false,req:false},
-        {k:"pesan",label:"Satu Pesan Utama / Takeaway (opsional)",type:"text",ph:"Contoh: Mulai dari nominal kecil lebih penting dari nunggu modal besar",req:false,full:true},
+        {k:"pesan",label:"Satu Pesan Utama / Takeaway",type:"text",ph:"Contoh: Mulai dari nominal kecil lebih penting dari nunggu modal besar",req:false,full:true},
         {k:"target",label:"Target Market",opt:"TARGET"},
         {k:"tujuan",label:"Tujuan Carousel",opt:"TUJUAN"}]},
       {n:2,t:"Gaya Bercerita",f:[
@@ -487,7 +489,7 @@ const GEN = {
       {n:1,t:"Iklan Pemenang",f:[
         {k:"winScript",label:"Script / Copy Pemenang (tempel di sini)",type:"textarea",ph:"Tempel script iklan yang sudah terbukti perform / menang…",full:true},
         {k:"winPlatform",label:"Platform Asal",opt:"PLATFORM"},
-        {k:"winElement",label:"Elemen yang bikin menang (opsional)",type:"textarea",ph:"mis. hook soal harga, pakai testimoni, demo produk",req:false,full:true}]},
+        {k:"winElement",label:"Elemen yang bikin menang",type:"textarea",ph:"mis. hook soal harga, pakai testimoni, demo produk",req:false,full:true}]},
       {n:2,t:"Strategi Iterasi",f:[
         {k:"angle",label:"Angle / Sudut Masuk",opt:"ANGLE",def:0,req:false},
         {k:"pov",label:"Sudut Bicara / Kata Ganti",opt:"POV",def:0,req:false},
@@ -1154,7 +1156,13 @@ function buildField(f){
   const lab=document.createElement('label');
   lab.innerHTML=f.label+(req?' <span class="req">*</span>':' <span style="opacity:.6">(opsional)</span>');
   wrap.appendChild(lab);
-  if(f.hint){const fh=document.createElement('div');fh.className='fhint';fh.textContent=f.hint;wrap.appendChild(fh);}
+  if(f.hint){
+    const info=document.createElement('span'); info.className='finfo'; info.textContent='i'; info.title=f.hint;
+    lab.appendChild(info);
+    const fh=document.createElement('div'); fh.className='fhint'; fh.textContent=f.hint; fh.style.display='none';
+    info.onclick=()=>{ fh.style.display=fh.style.display==='none'?'block':'none'; };
+    wrap.appendChild(fh);
+  }
 
   if(f.type==='text'||f.type==='textarea'){
     const el=document.createElement(f.type==='textarea'?'textarea':'input');
