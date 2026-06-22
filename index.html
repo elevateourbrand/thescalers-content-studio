@@ -74,6 +74,7 @@
   .field.full{grid-column:1/-1}
   label{font-size:12.5px;color:var(--muted)}
   label .req{color:#ff7a87}
+  .fhint{font-size:11px;color:var(--muted);margin:-2px 0 4px;line-height:1.4}
   select,input,textarea{width:100%;background:#0c1430;border:1px solid var(--line);color:var(--ink);
     border-radius:10px;padding:10px 11px;font-size:13.5px;outline:none;font-family:inherit}
   select:focus,input:focus,textarea:focus{border-color:var(--brand)}
@@ -237,6 +238,7 @@ const O = {
   JUMLAH_HOOK:["5 hook","10 hook","15 hook"],
   JUMLAH_SCRIPT:["1 script","2 script (A/B)","3 script (A/B/C)","4 script","5 script"],
   JUMLAH_SLIDE:["5 slide","7 slide","8 slide","10 slide"],
+  PANJANG_HOOK:["1 kalimat (rekomendasi carousel)","2 kalimat"],
   JUMLAH_ITER:["5 iterasi","10 iterasi","15 iterasi","20 iterasi"],
   AREA:["Keuangan / Finansial","Bisnis / Entrepreneurship","Content Creation / Sosial Media","Produktivitas / Self-development","Karier / Pekerjaan","Kesehatan / Lifestyle","Teknologi / AI","Pendidikan / Belajar","Relationship / Psikologi","Parenting / Keluarga"],
   TUJUAN_EDU:["Edukasi murni (kasih ilmu)","Inspirasi / Motivasi","Bangun personal brand / otoritas","Edutainment (hibur sambil edukasi)","Ajak diskusi / engagement"],
@@ -443,8 +445,11 @@ const GEN = {
 
   carousel:{ name:"Carousel Generator", icon:"🖼️",
     sections:[
-      {n:1,t:"Topik & Target",f:[
-        {k:"topik",label:"Topik / Judul Utama",type:"textarea",ph:"Contoh: 5 kesalahan pemula investasi",full:true},
+      {n:1,t:"Topik & Hook",f:[
+        {k:"topik",label:"Topik / Isi yang dibahas",type:"textarea",ph:"Contoh: 5 kesalahan pemula investasi",full:true},
+        {k:"hook",label:"Hook / Judul Cover (Slide 1)",opt:"HOOK",req:false,hint:"Gaya pembuka yang jadi judul besar di slide 1. Mau ketik judul sendiri? Pilih ✏️ Buat sendiri — AI tetap boleh menyempurnakan & kasih alternatif."},
+        {k:"hookLen",label:"Panjang Hook",opt:"PANJANG_HOOK",def:0,custom:false,req:false},
+        {k:"pesan",label:"Satu Pesan Utama / Takeaway (opsional)",type:"text",ph:"Contoh: Mulai dari nominal kecil lebih penting dari nunggu modal besar",req:false,full:true},
         {k:"target",label:"Target Market",opt:"TARGET"},
         {k:"tujuan",label:"Tujuan Carousel",opt:"TUJUAN"}]},
       {n:2,t:"Gaya Bercerita",f:[
@@ -456,19 +461,23 @@ const GEN = {
       {n:3,t:"Visual & Output",f:[
         {k:"visualC",label:"Panduan Visual (Desain)",opt:"VISUAL_CAROUSEL"},
         {k:"cta",label:"Call to Action",opt:"CTA"},
-        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0}]}
+        {k:"bahasa",label:"Bahasa Output",opt:"BAHASA",def:0},
+        {k:"extras",label:"Tambahan",type:"checks",full:true,req:false,items:["Pemicu Save/Share di slide terakhir","Caption + hashtag pendamping"]}]}
     ],
     prompt:s=>{
       let p=`### CAROUSEL GENERATOR — PROMPT (ADVANCED) ###\n\n`;
       p+=`Anda adalah Content Designer & Copywriter Carousel Instagram yang swipe-rate-nya tinggi. Sampaikan pesan seolah-olah Anda adalah: ${s.avatar||'kreator'}.\n\n`;
       p+=`**TUGAS:**\nBuat outline carousel persis ${s.slide} untuk topik "${s.topik}".\n\n`;
-      p+=`**KONTEKS:**\n`+L2("Target market",s.target)+L2("Tujuan",s.tujuan)+L2("Tone",s.tone)+L2("Framework",s.framework)+L2("Panduan visual",s.visualC)+L2("CTA",s.cta);
+      p+=`**KONTEKS:**\n`+L2("Target market",s.target)+L2("Tujuan",s.tujuan)+L2("Tone",s.tone)+L2("Framework",s.framework)+L2("Panduan visual",s.visualC)+L2("CTA",s.cta)+L2("Satu pesan utama",s.pesan)+L2("Tipe/judul hook cover",s.hook);
       p+=tacticalBlock(s);
       p+=`\n**STRUKTUR PER SLIDE (WAJIB):**\n`;
-      p+=`* Slide 1 = COVER/HOOK: judul menampar + janji benefit yang bikin orang nge-swipe.\n`;
+      p+=`* Slide 1 = COVER/HOOK: beri 2–3 OPSI headline${s.hook?` bergaya "${s.hook}"`:''} (${/2 kalimat/.test(s.hookLen||'')?'maks 2 kalimat':'CUKUP 1 kalimat'}, font besar & menampar) + janji benefit yang bikin nge-swipe — biar bisa dipilih yang paling nendang. Kalau user kasih judul sendiri, jadikan salah satu opsi lalu sempurnakan.\n`;
       p+=`* Tiap slide: [Headline ringkas] + [Sub-teks penjelas bila perlu] + (Visual Idea: arahan desain berbasis "${s.visualC||'gaya bebas'}").\n`;
       p+=`* Slide terakhir = CTA: ${s.cta||'ajakan jelas'}.\n`;
-      p+=`* Alur antar-slide nyambung & swipe-worthy, ikuti framework: ${fwFlow(s.framework)}. Usung 1 key message utama lintas slide.\n`;
+      p+=`* Alur antar-slide nyambung & swipe-worthy, ikuti framework: ${fwFlow(s.framework)}. Usung SATU key message utama lintas slide${s.pesan?`: "${s.pesan}"`:''}.\n`;
+      const ex=s.extras||[];
+      if(ex.some(x=>/Save/i.test(x))) p+=`* Slide terakhir: selain CTA, dorong audiens untuk SIMPAN & BAGIKAN (mis. "save biar nggak lupa").\n`;
+      if(ex.some(x=>/Caption/i.test(x))) p+=`* SETELAH semua slide, tulis 1 caption postingan (baris pertama hook → isi → CTA) + 8–12 hashtag relevan.\n`;
       p+=`* Bahasa ${s.bahasa}, gaya ${s.tone||'sesuai target'}.\n\nTulis per slide (Slide 1 … Slide ${s.slide}).`;
       return p;
     }},
@@ -1145,6 +1154,7 @@ function buildField(f){
   const lab=document.createElement('label');
   lab.innerHTML=f.label+(req?' <span class="req">*</span>':' <span style="opacity:.6">(opsional)</span>');
   wrap.appendChild(lab);
+  if(f.hint){const fh=document.createElement('div');fh.className='fhint';fh.textContent=f.hint;wrap.appendChild(fh);}
 
   if(f.type==='text'||f.type==='textarea'){
     const el=document.createElement(f.type==='textarea'?'textarea':'input');
